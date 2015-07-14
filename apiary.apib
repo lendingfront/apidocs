@@ -1,0 +1,176 @@
+FORMAT: 1A
+
+# LendingFront Application API
+
+The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront's platform.
+
+Our platform collects Social, Cash Flow and Credit Bureau data electronically.
+It is important that the business owner agrees to the terms and conditions before the application is submitted.
+
+# Security
+
++ LendingFront's APIs use token based authentication. You can get a token in the Settings page of the LendingPortal when you login as an Administrator.
+
+During the initial pilot, LendingFront will manually provide the token.
+
++ API calls must be sent via https (SSL)
+
+# Testing URL
+
+Will be provided via email
+
+# Endpoints
+
+## Submit Application [POST]
+
++ Resource: /application
+
+An Application has the following attributes:
+
+#### Header Attributes
+
+user_token: API Key assigned by LendingFront
+
+#### Body Attributes
+
++ name: business name
++ tax_id
++ phone: business phone
++ address: business address
++ city
++ state
++ zipcode
+
+Owner information:
+
++ first_name
++ last_name
++ birthday
++ phone_owner
++ ssn: last 4 digits of the social security number
++ email
++ city_owner
++ state_owner
++ address_owner
++ zipcode_owner
+
+Optional Fields:
+
++ years_business
++ industry
++ legal_entity_type: business legal entity type: Corporation, LLC, etc
++ estimated_annual_revenue
++ origination_id: the application number of the application in your (CRM) system. 
++ send_link: True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
+
+### Request (json)
+
+Header:
+
+user_token: 'eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo'
+
+Body:
+
+    { 'last_name': 'Smith', 
+      'send_link': 'True', 
+      'city': 'New York', 
+      'first_name': 'Peter', 
+      'requested_amount': '25000', 
+      'city_owner': 'New York', 
+      'address_owner': '450 E 45th Street', 
+      'zipcode': '10019', 
+      'state': 'NY', 
+      'tax_id': '231232131', 
+      'email': u'petersmith@gmail.com', 
+      'phone_owner': u'3475608900', 
+      'phone': '2123233445', 
+      'ssn': '1232', 
+      'address': '400 5th Ave', 
+      'origination_id': '456700', 
+      'zipcode_owner': '07047', 
+      'state_owner': 'NJ', 
+      'name': 'Data Service 12', 
+      'birthday': '1/1/1975'
+    }
+
+
+### Response
+
++ Success Response (application/json):
+
+    { 'status': 'OK',
+      'application_number': '1234567890'
+    }
+
++ Error Response (application/json):
+
+    {
+      'status': 'ERROR',
+      'message': [error message]
+    }
+
++ Duplicate Response (application/json)
+
+    {
+      'status': 'WARN',
+      'message': 'A duplicate application was found. Your application was not created'
+    }
+
+
+## Retrieve Application [GET]
+
++ Resource: /application
+
+#### Header Attributes
+
++ user_token: API Key assigned by LendingFront
+
+#### Body Attributes
+
++ application_number: unique number that identifies a submitted application. This number is returned by the submit application endpoint.
+
+### Request (json)
+
+Header:
+
+user_token: 'eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo'
+
+Body:
+
+    {
+        application_number: '196415838638'
+    }
+
+### Response
+
++ Response success (application/json)
+
+        {
+            'status': 'OK',
+            'application_number':'196415838638',
+            'requested_amount':Decimal('54000'),
+            'loan_amount': Decimal('45000'),
+            'origination_id': '345433',
+            'term': 6,
+            'origination_fee':,
+            'cents_on_the_dollar': Decimal('0.15'),
+            'decision': 'APPROVED',
+            'status': 'FUNDED',
+            'create_date': '07/13/2015',
+            'decision_date': '07/13/2015'
+        }
+        
++ Response Not Found (application/json)
+
+    {
+        'status': 'OK',
+        'message': 'Application not found'
+    }
+
++ Response Error (application/json)
+
+    {
+        'status': 'ERROR',
+        'message': 'An error ocurred while processing the request'
+    }
+
