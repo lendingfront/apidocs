@@ -1,0 +1,298 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>LendingFront Application API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+h4,
+h5 {
+  font-family: 'Roboto' sans-serif !important;
+}
+h1,
+h2,
+h3,
+.aglio {
+  font-family: 'Raleway' sans-serif !important;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a {
+  display: none;
+}
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a,
+h5:hover a {
+  display: inline;
+}
+code {
+  color: #444;
+  background-color: #ddd;
+  font-family: 'Inconsolata' monospace !important;
+}
+a[data-target] {
+  cursor: pointer;
+}
+h4 {
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.back-to-top {
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 24px;
+  padding: 4px 8px;
+  background-color: #eee;
+  text-decoration: none !important;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-left: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel {
+  overflow: hidden;
+}
+.panel-heading code {
+  margin-left: 3px;
+  color: #c7254e;
+  background-color: rgba(255,255,255,0.7);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.panel-heading h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+a.list-group-item:hover {
+  background-color: #f8f8f8;
+  border-left: 2px solid #555;
+  padding-left: 15px;
+}
+.indent {
+  display: block;
+  text-indent: 16px;
+}
+.list-group-item {
+  padding-left: 16px;
+}
+.list-group-item .toggle .open {
+  display: block;
+}
+.list-group-item .toggle .closed {
+  display: none;
+}
+.list-group-item.collapsed .toggle .open {
+  display: none;
+}
+.list-group-item.collapsed .toggle .closed {
+  display: block;
+}
+a.list-group-item {
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+a.list-group-item.heading {
+  font-size: 15px;
+  background-color: #f5f5f5;
+}
+a.list-group-item.heading:hover {
+  background-color: #f8f8f8;
+}
+.list-group-item.collapse {
+  display: none;
+}
+.list-group-item.collapse.in {
+  display: block;
+}
+.list-group-item a span.closed {
+  display: none;
+}
+.list-group-item a span.open {
+  display: block;
+}
+.list-group-item a.collapsed span.closed {
+  display: block;
+}
+.list-group-item a.collapsed span.open {
+  display: none;
+}
+#nav {
+  width: inherit;
+  margin-top: 38px;
+  max-width: 255px;
+  top: 0;
+  bottom: 0;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  overflow-y: auto;
+}
+@media (max-width: 1199px) {
+  #nav {
+    max-width: 212px;
+  }
+}
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
+<p>Our platform collects Social, Cash Flow and Credit Bureau data electronically.
+It is important that the business owner agrees to the terms and conditions before the application is submitted.</p>
+<h1>Security</h1>
+<ul>
+<li>LendingFront’s APIs use token based authentication. You can get a token in the Settings page of the LendingPortal when you login as an Administrator.</li>
+</ul>
+<p>During the initial pilot, LendingFront will manually provide the token.</p>
+<ul>
+<li>API calls must be sent via https (SSL)</li>
+</ul>
+<h1>Testing URL</h1>
+<p>Will be provided via email</p>
+<h1>Endpoints</h1>
+<h2>Submit Application [POST]</h2>
+<ul>
+<li>Resource: /application</li>
+</ul>
+<p>An Application has the following attributes:</p>
+<h4>Header Attributes</h4>
+<p>user_token: API Key assigned by LendingFront</p>
+<h4>Body Attributes</h4>
+<ul>
+<li><p>name: business name</p></li>
+<li><p>tax_id</p></li>
+<li><p>phone: business phone</p></li>
+<li><p>address: business address</p></li>
+<li><p>city</p></li>
+<li><p>state</p></li>
+<li><p>zipcode</p></li>
+</ul>
+<p>Owner information:</p>
+<ul>
+<li><p>first_name</p></li>
+<li><p>last_name</p></li>
+<li><p>birthday</p></li>
+<li><p>phone_owner</p></li>
+<li><p>ssn: last 4 digits of the social security number</p></li>
+<li><p>email</p></li>
+<li><p>city_owner</p></li>
+<li><p>state_owner</p></li>
+<li><p>address_owner</p></li>
+<li><p>zipcode_owner</p></li>
+</ul>
+<p>Optional Fields:</p>
+<ul>
+<li><p>years_business</p></li>
+<li><p>industry</p></li>
+<li><p>legal_entity_type: business legal entity type: Corporation, LLC, etc</p></li>
+<li><p>estimated_annual_revenue</p></li>
+<li><p>origination_id: the application number of the application in your (CRM) system.</p></li>
+<li><p>send_link: True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront’s platform</p></li>
+</ul>
+<h3>Request (json)</h3>
+<p>Header:</p>
+<p>user_token: ‘eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo’</p>
+<p>Body:</p>
+<pre><code>{ 'last_name': 'Smith', 
+  'send_link': 'True', 
+  'city': 'New York', 
+  'first_name': 'Peter', 
+  'requested_amount': '25000', 
+  'city_owner': 'New York', 
+  'address_owner': '450 E 45th Street', 
+  'zipcode': '10019', 
+  'state': 'NY', 
+  'tax_id': '231232131', 
+  'email': u'petersmith@gmail.com', 
+  'phone_owner': u'3475608900', 
+  'phone': '2123233445', 
+  'ssn': '1232', 
+  'address': '400 5th Ave', 
+  'origination_id': '456700', 
+  'zipcode_owner': '07047', 
+  'state_owner': 'NJ', 
+  'name': 'Data Service 12', 
+  'birthday': '1/1/1975'
+}
+</code></pre>
+<h3>Response</h3>
+<ul>
+<li><p>Success Response (application/json):</p>
+<p>{ 'status’: 'OK’,
+'application_number’: ‘1234567890’
+}</p></li>
+<li><p>Error Response (application/json):</p>
+<p>{
+'status’: 'ERROR’,
+'message’: [error message]
+}</p></li>
+<li><p>Duplicate Response (application/json)</p>
+<p>{
+'status’: 'WARN’,
+'message’: ‘A duplicate application was found. Your application was not created’
+}</p></li>
+</ul>
+<h2>Retrieve Application [GET]</h2>
+<ul>
+<li>Resource: /application</li>
+</ul>
+<h4>Header Attributes</h4>
+<ul>
+<li>user_token: API Key assigned by LendingFront</li>
+</ul>
+<h4>Body Attributes</h4>
+<ul>
+<li>application_number: unique number that identifies a submitted application. This number is returned by the submit application endpoint.</li>
+</ul>
+<h3>Request (json)</h3>
+<p>Header:</p>
+<p>user_token: ‘eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo’</p>
+<p>Body:</p>
+<pre><code>{
+    application_number: '196415838638'
+}
+</code></pre>
+<h3>Response</h3>
+<ul>
+<li><p>Response success (application/json)</p>
+<pre><code>  {
+      'status': 'OK',
+      'application_number':'196415838638',
+      'requested_amount':Decimal('54000'),
+      'loan_amount': Decimal('45000'),
+      'origination_id': '345433',
+      'term': 6,
+      'origination_fee':,
+      'cents_on_the_dollar': Decimal('0.15'),
+      'decision': 'APPROVED',
+      'status': 'FUNDED',
+      'create_date': '07/13/2015',
+      'decision_date': '07/13/2015'
+  }
+</code></pre></li>
+<li><p>Response Not Found (application/json)</p>
+<p>{
+'status’: 'OK’,
+'message’: ‘Application not found’
+}</p></li>
+<li><p>Response Error (application/json)</p>
+<p>{
+'status’: 'ERROR’,
+'message’: ‘An error ocurred while processing the request’
+}</p></li>
+</ul>
+</div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 14 Jul 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+
+</div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
+  if (location.protocol === 'file:') {
+    document.getElementById('localFile').style.display = 'block';
+  }
+
+}).call(this);
+</script><script>(function() {
+  $('table').addClass('table');
+
+}).call(this);
+</script></html>
