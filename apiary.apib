@@ -7,7 +7,7 @@ The Application API is a simple REST based API that allows you to submit and ret
 Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.
 
-## Authentication3
+### Authentication3
 
 ```no-highlight
 LendingFront's APIs use token based authentication. You can get a key in the Settings page of the 
@@ -18,14 +18,14 @@ During the initial pilot, LendingFront will manually provide you with a key.
 API calls must be sent via https (SSL)
 ``` 
 
-## Testing Host
+### Testing Host
 
 LendingFront will provide the testing URL 
 
 # Data Structures
 
 ## ApplicationData
-+ user_token: eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo (required) - API Key assigned by LendingFront
++ key: eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo (required) - API Key assigned by LendingFront
 + name: Super Deli (required) - Business name
 + tax_id: 876675543 (required) - The 9 digit Tax ID or EIN
 + phone: 2123455456 (required) - Main business phone 
@@ -48,7 +48,7 @@ Attributes:
 
 Name | Description
 ---- | -----------
-user_token | API Key assigned by LendingFront
+key | API Key assigned by LendingFront
 application_number | unique number that identifies a submitted application. This number is returned by the create application endpoint.
 
 + Request  (application/json)
@@ -107,7 +107,7 @@ Attributes:
 
 Name | Description
 ---- | -----------
-user_token  | API Key assigned by LendingFront
+key | API Key assigned by LendingFront
 name | Business name
 tax_id | The 9 digit Tax ID or EIN
 phone | Main business phone 
