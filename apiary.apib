@@ -31,6 +31,38 @@ API calls must be sent via https (SSL)
 
 # ApplicationList (array[ApplicationData])
 
+## NoteData
++ id: 1 (required, number) - Unique identifier
++ title: Grocery list (required) - Single line description
++ body: Buy milk - Full description of the note which supports Markdown.
+
+## NoteList (array[NoteData])
+
+# Group Notes
+Group description (also with *Markdown*)
+
+## Important Info
+Descriptions may also contain sub-headings and **more Markdown**.
+
+## Note List [/notes]
+Note list description
+
++ Even
++ More
++ Markdown
+
+### Get Notes [GET]
+Get a list of notes.
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-Request-ID: f72fc914
+            X-Response-Time: 4ms
+
+    + Attributes (NoteList)
+
 # Group Notes
 Group description (also with *Markdown*)
 
