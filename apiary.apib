@@ -52,16 +52,60 @@ Note list description
 + Markdown
 
 ### Get Application [GET]
-Get a list of notes.
+Retrieves an application by application_number
+    
 
-+ Response 200 (application/json)
+Name | Description
+---- | -----------
+user_token | API Key assigned by LendingFront
+application_number | unique number that identifies a submitted application. This number is returned by the submit application endpoint.
+
++ Request  (application/json)
 
     + Headers
 
-            X-Request-ID: f72fc914
-            X-Response-Time: 4ms
+            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
 
-    + Attributes (ApplicationList)
+
+    + Body
+
+            {
+                application_number: '196415838638'
+            }
+
++ Response 200 (application/json)
+
+        +  success
+        
+                {
+                    'status': 'OK',
+                    'application_number':'196415838638',
+                    'requested_amount':Decimal('54000'),
+                    'loan_amount': Decimal('45000'),
+                    'origination_id': '345433',
+                    'term': 6,
+                    'origination_fee':,
+                    'cents_on_the_dollar': Decimal('0.15'),
+                    'decision': 'APPROVED',
+                    'status': 'FUNDED',
+                    'create_date': '07/13/2015',
+                    'decision_date': '07/13/2015'
+                }
+                
+        +  Not Found 
+        
+                {
+                    'status': 'OK',
+                    'message': 'Application not found'
+                }
+        
+        +  Error 
+        
+                {
+                    'status': 'ERROR',
+                    'message': 'An error ocurred while processing the request'
+                }
+        
 
 ### Create New Application [POST]
 Create New Application
@@ -158,71 +202,6 @@ send_link | True if a bank enrollment email should be sent to the business to co
               'message': 'A duplicate application was found. Your application was not created'
             }
 
-### Get Application [GET]
-Retrieve an Application.
 
-+ Response 200 (application/json)
 
-    + Headers
-
-            X-Request-ID: f72fc914
-            X-Response-Time: 4ms
-
-    + Attributes (ApplicationList)
-    
-Resource: /application
-
-+ Attributes
-
-Name | Description
----- | -----------
-user_token | API Key assigned by LendingFront
-application_number | unique number that identifies a submitted application. This number is returned by the submit application endpoint.
-
-### Request 
-
-+ Headers
-
-```http
-Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
-```
-
-+ Body
-
-        {
-            application_number: '196415838638'
-        }
-
-### Response
-
-+  success
-
-        {
-            'status': 'OK',
-            'application_number':'196415838638',
-            'requested_amount':Decimal('54000'),
-            'loan_amount': Decimal('45000'),
-            'origination_id': '345433',
-            'term': 6,
-            'origination_fee':,
-            'cents_on_the_dollar': Decimal('0.15'),
-            'decision': 'APPROVED',
-            'status': 'FUNDED',
-            'create_date': '07/13/2015',
-            'decision_date': '07/13/2015'
-        }
-        
-+  Not Found 
-
-        {
-            'status': 'OK',
-            'message': 'Application not found'
-        }
-
-+  Error 
-
-        {
-            'status': 'ERROR',
-            'message': 'An error ocurred while processing the request'
-        }
 
