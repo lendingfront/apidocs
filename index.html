@@ -1,7 +1,6 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>LendingFront Application API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/slate/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>/* Highlight.js Theme Tomorrow Night Eighties */
-pre{color:#fff;background:#272b30;border:1px solid rgba(255, 255, 255, 0.2)}
-pre code{display:block;padding:.5em;background:#272b30}
-.hljs-comment,.hljs-title{color:#999}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#f2777a}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f99157}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#fc6}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#9c9}.css .hljs-hexcolor{color:#6cc}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#69c}.hljs-keyword,.javascript .hljs-function{color:#c9c}.hljs{display:block;background:#2d2d2d;color:#ccc;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>LendingFront Application API</title><link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"><link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200"><style>pre code{display:block;padding:.5em;color:#333}
+/* Highlight.js Theme Tomorrow */
+.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}</style><style>body,
 h4,
 h5 {
   font-family: 'Roboto' sans-serif !important;
@@ -27,8 +26,8 @@ h5:hover a {
   display: inline;
 }
 code {
-  color: #222;
-  background-color: #aaa;
+  color: #444;
+  background-color: #ddd;
   font-family: 'Inconsolata' monospace !important;
 }
 a[data-target] {
@@ -45,8 +44,7 @@ h4 {
   bottom: 0px;
   right: 24px;
   padding: 4px 8px;
-  color: #aaa;
-  background-color: #171b20;
+  background-color: #eee;
   text-decoration: none !important;
   border-top: 1px solid rgba(0,0,0,0.1);
   border-left: 1px solid rgba(0,0,0,0.1);
@@ -59,7 +57,6 @@ h4 {
 }
 .panel-heading code {
   margin-left: 3px;
-  color: #000;
   background-color: rgba(255,255,255,0.7);
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
@@ -96,8 +93,8 @@ a.list-group-item:hover {
   display: block;
 }
 a.list-group-item:hover {
-  background-color: #4b5159;
-  border-left-color: #c8c8c8;
+  background-color: #f5f5f5;
+  border-left-color: #555;
 }
 a.list-group-item {
   font-size: 13px;
@@ -107,10 +104,10 @@ a.list-group-item {
 }
 a.list-group-item.heading {
   font-size: 15px;
-  background-color: #3e444c;
+  background-color: #ecf0f1;
 }
 a.list-group-item.heading:hover {
-  background-color: #4b5159;
+  background-color: #f5f5f5;
 }
 .list-group-item.collapse {
   display: none;
