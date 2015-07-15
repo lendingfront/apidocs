@@ -27,41 +27,40 @@ Resource: /application
 ```
 An Application has the following attributes:
 
-ID | Name | Description
---:| ---- | -----------
- 1 | user_token  | API Key assigned by LendingFront
- 2 | name | Business name
+Name | Description
+---- | -----------
+user_token  | API Key assigned by LendingFront
+name | Business name
+tax_id | The 9 digit Tax ID or EIN
+phone | Business Phone
+address |
+city |
+state |
+zipcode
  
-+ user_token: API Key assigned by LendingFront
-+ name: business name
-+ tax_id
-+ phone: business phone
-+ address: business address
-+ city
-+ state
-+ zipcode
-
 Owner information:
 
-+ first_name
-+ last_name
-+ birthday
-+ phone_owner
-+ ssn: last 4 digits of the social security number
-+ email
-+ city_owner
-+ state_owner
-+ address_owner
-+ zipcode_owner
+Name | Description
+---- | -----------
+first_name |
+last_name |
+birthday |
+phone_owner |
+ssn | Last 4 digits of the social security number
+email | e-mail where loan related communications should be sent (including loan docs)
+city_owner |
+state_owner |
+address_owner |
+zipcode_owner |
 
 Optional Fields:
 
-+ years_business
-+ industry
-+ legal_entity_type: business legal entity type: Corporation, LLC, etc
-+ estimated_annual_revenue
-+ origination_id: the application number of the application in your (CRM) system. 
-+ send_link: True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
+Name | Description
+---- | -----------
+years_business |
+estimated_annual_revenue |
+origination_id | the application number of the application in your (CRM) system. 
+send_link | True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
 
 + Request (json)
 
