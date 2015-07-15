@@ -68,50 +68,50 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
 
 + Body:
 
-{ 'last_name': 'Smith', 
-  'send_link': 'True', 
-  'city': 'New York', 
-  'first_name': 'Peter', 
-  'requested_amount': '25000', 
-  'city_owner': 'New York', 
-  'address_owner': '450 E 45th Street', 
-  'zipcode': '10019', 
-  'state': 'NY', 
-  'tax_id': '231232131', 
-  'email': u'petersmith@gmail.com', 
-  'phone_owner': u'3475608900', 
-  'phone': '2123233445', 
-  'ssn': '1232', 
-  'address': '400 5th Ave', 
-  'origination_id': '456700', 
-  'zipcode_owner': '07047', 
-  'state_owner': 'NJ', 
-  'name': 'Data Service 12', 
-  'birthday': '1/1/1975'
-}
+        { 'last_name': 'Smith', 
+          'send_link': 'True', 
+          'city': 'New York', 
+          'first_name': 'Peter', 
+          'requested_amount': '25000', 
+          'city_owner': 'New York', 
+          'address_owner': '450 E 45th Street', 
+          'zipcode': '10019', 
+          'state': 'NY', 
+          'tax_id': '231232131', 
+          'email': u'petersmith@gmail.com', 
+          'phone_owner': u'3475608900', 
+          'phone': '2123233445', 
+          'ssn': '1232', 
+          'address': '400 5th Ave', 
+          'origination_id': '456700', 
+          'zipcode_owner': '07047', 
+          'state_owner': 'NJ', 
+          'name': 'Data Service 12', 
+          'birthday': '1/1/1975'
+        }
 
 
 ### Response
 
 + Success Response 
 
-    { 'status': 'OK',
-      'application_number': '1234567890'
-    }
+        { 'status': 'OK',
+          'application_number': '1234567890'
+        }
 
 + Error Response 
 
-    {
-      'status': 'ERROR',
-      'message': [error message]
-    }
+        {
+          'status': 'ERROR',
+          'message': [error message]
+        }
 
 + Duplicate Response 
 
-    {
-      'status': 'WARN',
-      'message': 'A duplicate application was found. Your application was not created'
-    }
+        {
+          'status': 'WARN',
+          'message': 'A duplicate application was found. Your application was not created'
+        }
 
 
 ## GET Application  
