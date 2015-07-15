@@ -168,29 +168,29 @@ It is important that the business owner agrees to the terms and conditions befor
 <tr><td>user_token</td><td>API Key assigned by LendingFront</td></tr>
 <tr><td>name</td><td>Business name</td></tr>
 <tr><td>tax_id</td><td>The 9 digit Tax ID or EIN</td></tr>
-<tr><td>phone</td><td>Business Phone</td></tr>
-<tr><td>address</td></tr>
-<tr><td>city</td></tr>
-<tr><td>state</td></tr>
+<tr><td>phone</td><td>Main business phone</td></tr>
+<tr><td>address</td><td>Address line</td></tr>
+<tr><td>city</td><td>City</td></tr>
+<tr><td>state</td><td>State (NY, NJ, etc)</td></tr>
+<tr><td>zipcode</td><td>Postal code</td></tr>
 </tbody>
 </table>
-<p>zipcode</p>
 <p>Owner information:</p>
 <table>
 <thead>
 <tr><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>first_name</td></tr>
-<tr><td>last_name</td></tr>
-<tr><td>birthday</td></tr>
-<tr><td>phone_owner</td></tr>
+<tr><td>first_name</td><td>First Name of the primary owner</td></tr>
+<tr><td>last_name</td><td>Last Name of the primary owner</td></tr>
+<tr><td>birthday</td><td>Birthday of the primary owner</td></tr>
+<tr><td>phone_owner</td><td>Primary phone number of owner</td></tr>
 <tr><td>ssn</td><td>Last 4 digits of the social security number</td></tr>
 <tr><td>email</td><td>e-mail where loan related communications should be sent (including loan docs)</td></tr>
-<tr><td>city_owner</td></tr>
-<tr><td>state_owner</td></tr>
-<tr><td>address_owner</td></tr>
-<tr><td>zipcode_owner</td></tr>
+<tr><td>city_owner</td><td>City where the owner’s home is located</td></tr>
+<tr><td>state_owner</td><td>State where the owner’s home is located</td></tr>
+<tr><td>address_owner</td><td>Owner’s Address</td></tr>
+<tr><td>zipcode_owner</td><td>Owner’s home Postal Code</td></tr>
 </tbody>
 </table>
 <p>Optional Fields:</p>
@@ -199,8 +199,8 @@ It is important that the business owner agrees to the terms and conditions befor
 <tr><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>years_business</td></tr>
-<tr><td>estimated_annual_revenue</td></tr>
+<tr><td>years_business</td><td>Number of years in business (e.g 2, 3)</td></tr>
+<tr><td>estimated_annual_revenue</td><td>Self provided annual revenue</td></tr>
 <tr><td>origination_id</td><td>the application number of the application in your (CRM) system.</td></tr>
 <tr><td>send_link</td><td>True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront’s platform</td></tr>
 </tbody>
@@ -259,15 +259,21 @@ It is important that the business owner agrees to the terms and conditions befor
 <h2>GET Application</h2>
 <pre><code class="language-http"><span class="hljs-attribute">Resource</span>: <span class="hljs-string">/application</span>
 </code></pre>
-<h4>Header Attributes</h4>
 <ul>
-<li>user_token: API Key assigned by LendingFront</li>
+<li>Attributes</li>
 </ul>
-<h4>Body Attributes</h4>
+<table>
+<thead>
+<tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>user_token</td><td>API Key assigned by LendingFront</td></tr>
+<tr><td>application_number</td><td>unique number that identifies a submitted application. This number is returned by the submit application endpoint.</td></tr>
+</tbody>
+</table>
+<p>Request</p>
 <ul>
-<li><p>application_number: unique number that identifies a submitted application. This number is returned by the submit application endpoint.</p></li>
-<li><p>Request</p></li>
-<li><p>Headers</p></li>
+<li>Headers</li>
 </ul>
 <pre><code class="language-http"><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span>
 </code></pre>
