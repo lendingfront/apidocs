@@ -7,7 +7,7 @@ The Application API is a simple REST based API that allows you to submit and ret
 Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.
 
-# Authentication2
+# Authentication3
 
 ```no-highlight
 LendingFront's APIs use token based authentication. You can get a token in the Settings page of the LendingPortal when you login as an Administrator.
@@ -36,6 +36,18 @@ Group description (also with *Markdown*)
 
 ## Important Info
 Descriptions may also contain sub-headings and **more Markdown**.
+
+### Get Application [GET]
+Get a list of notes.
+
++ Response 200 (application/json)
+
+    + Headers
+
+            X-Request-ID: f72fc914
+            X-Response-Time: 4ms
+
+    + Attributes (ApplicationList)
 
 ### Create New Application [POST]
 Create New Application
