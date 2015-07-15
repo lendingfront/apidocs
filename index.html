@@ -154,7 +154,6 @@ API calls must be sent via https (SSL)
 </code></pre>
 <h1>Testing URL</h1>
 <p>Will be provided via email</p>
-<h3>Create New Note [POST]</h3>
 <h3>Create New Application [POST]</h3>
 <p>Create New Application</p>
 <pre><code class="language-http"><span class="hljs-attribute">Resource</span>: <span class="hljs-string">/application</span>
@@ -205,7 +204,8 @@ API calls must be sent via https (SSL)
 <tr><td>send_link</td><td>True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront’s platform</td></tr>
 </tbody>
 </table>
-<h3>Request</h3>
+<ul>
+<li><p>Request</p>
 <ul>
 <li>Headers</li>
 </ul>
@@ -213,48 +213,47 @@ API calls must be sent via https (SSL)
 </code></pre>
 <ul>
 <li><p>Body:</p>
-<pre><code>  { 'last_name': 'Smith', 
-    'send_link': 'True', 
-    'city': 'New York', 
-    'first_name': 'Peter', 
-    'requested_amount': '25000', 
-    'city_owner': 'New York', 
-    'address_owner': '450 E 45th Street', 
-    'zipcode': '10019', 
-    'state': 'NY', 
-    'tax_id': '231232131', 
-    'email': u'petersmith@gmail.com', 
-    'phone_owner': u'3475608900', 
-    'phone': '2123233445', 
-    'ssn': '1232', 
-    'address': '400 5th Ave', 
-    'origination_id': '456700', 
-    'zipcode_owner': '07047', 
-    'state_owner': 'NJ', 
-    'name': 'Data Service 12', 
-    'birthday': '1/1/1975'
-  }
-</code></pre></li>
+<p>{ 'last_name’: 'Smith’,
+'send_link’: 'True’,
+'city’: 'New York’,
+'first_name’: 'Peter’,
+'requested_amount’: '25000’,
+'city_owner’: 'New York’,
+'address_owner’: '450 E 45th Street’,
+'zipcode’: '10019’,
+'state’: 'NY’,
+'tax_id’: '231232131’,
+'email’: u’<a href="mailto:petersmith@gmail.com">petersmith@gmail.com</a>’,
+'phone_owner’: u’3475608900’,
+'phone’: '2123233445’,
+'ssn’: '1232’,
+'address’: '400 5th Ave’,
+'origination_id’: '456700’,
+'zipcode_owner’: '07047’,
+'state_owner’: 'NJ’,
+'name’: 'Data Service 12’,
+'birthday’: ‘1/1/1975’
+}</p></li>
+</ul></li>
 </ul>
-<h3>Response</h3>
+<ul>
+<li><p>Response 200 (application/json)</p>
 <ul>
 <li><p>Success</p>
-<pre><code>  { 'status': 'OK',
-    'application_number': '1234567890'
-  }
-</code></pre></li>
+<p>{ 'status’: 'OK’,
+'application_number’: ‘1234567890’
+}</p></li>
 <li><p>Error</p>
-<pre><code>  {
-    'status': 'ERROR',
-    'message': [error message]
-  }
-</code></pre></li>
+<p>{
+'status’: 'ERROR’,
+'message’: [error message]
+}</p></li>
 <li><p>Duplicate</p>
-<pre><code>  {
-    'status': 'WARN',
-    'message': 'A duplicate application was found. Your application was not created'
-  }
-</code></pre></li>
+<p>{
+'status’: 'WARN’,
+'message’: ‘A duplicate application was found. Your application was not created’
+}</p></li>
+</ul></li>
 </ul>
 <h2>GET Application</h2>
 <pre><code class="language-http"><span class="hljs-attribute">Resource</span>: <span class="hljs-string">/application</span>
