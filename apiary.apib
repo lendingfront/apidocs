@@ -21,7 +21,8 @@ Will be provided via email
 
 # Data Structures
 
-## Create New Application [POST]
+# POST Application
+Create New Application
 
 ```http
 Resource: /application
@@ -92,20 +93,20 @@ Optional Fields:
 
 ### Response
 
-+ Success Response (application/json):
++ Success Response 
 
     { 'status': 'OK',
       'application_number': '1234567890'
     }
 
-+ Error Response (application/json):
++ Error Response 
 
     {
       'status': 'ERROR',
       'message': [error message]
     }
 
-+ Duplicate Response (application/json)
++ Duplicate Response 
 
     {
       'status': 'WARN',
@@ -113,7 +114,7 @@ Optional Fields:
     }
 
 
-## Get Application  [GET]
+## GET Application  
 
 ```http
 Resource: /application
@@ -127,21 +128,21 @@ Resource: /application
 
 + application_number: unique number that identifies a submitted application. This number is returned by the submit application endpoint.
 
-### Request (json)
++ Request 
 
-Header:
++ Headers
 
-Authentication Bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+    <HTTP Authentication>: Bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
 
-Body:
++ Body
 
     {
         application_number: '196415838638'
     }
 
-### Response
++ Response
 
-+ Response success (application/json)
++ Response success
 
         {
             'status': 'OK',
@@ -158,18 +159,17 @@ Body:
             'decision_date': '07/13/2015'
         }
         
-+ Response Not Found (application/json)
++ Response Not Found 
 
         {
             'status': 'OK',
             'message': 'Application not found'
         }
 
-+ Response Error (application/json)
++ Response Error 
 
         {
             'status': 'ERROR',
             'message': 'An error ocurred while processing the request'
         }
 
-### GET
