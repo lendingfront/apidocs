@@ -142,7 +142,7 @@ a.list-group-item.heading:hover {
     max-width: 212px;
   }
 }
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#notes-menu" href="#notes" class="list-group-item heading collapsed">Notes</a><div id="notes-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#notes-menu" href="#notes" class="list-group-item heading collapsed">Notes</a><div id="notes-menu"><a href="#notes-note-list" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span>Note List</a></div></div><div class="list-group"><a data-toggle="" data-target="#notes-menu" href="#notes" class="list-group-item heading collapsed">Notes</a><div id="notes-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
 <p>Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.</p>
 <h1>Authentication4</h1>
@@ -153,6 +153,16 @@ During the initial pilot, LendingFront will manually provide the token.
 API calls must be sent via https (SSL)
 </code></pre>
 </div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="notes">Notes&nbsp;<a href="#notes"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Group description (also with <em>Markdown</em>)</p>
+<h2>Important Info</h2>
+<p>Descriptions may also contain sub-headings and <strong>more Markdown</strong>.</p>
+<h4 id="notes-note-list">Note List&nbsp;<a href="#notes-note-list"><i class="fa fa-link"></i></a></h4><p>Note list description</p>
+<ul>
+<li><p>Even</p></li>
+<li><p>More</p></li>
+<li><p>Markdown</p></li>
+</ul>
+<section id="notes-note-list-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get Notes</span></div><div style="float:left"><a href="#notes-note-list-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/notes</code></div></div><div class="panel-body"><p>Get a list of notes.</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#e059c091a14f54986870abbadd5db37c" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="e059c091a14f54986870abbadd5db37c" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">X-Request-ID</span>: <span class="hljs-string">f72fc914</span><br><span class="hljs-attribute">X-Response-Time</span>: <span class="hljs-string">4ms</span><br></code></pre></li></ul></section></div></div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="notes">Notes&nbsp;<a href="#notes"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><p>Group description (also with <em>Markdown</em>)</p>
 <h2>Important Info</h2>
 <p>Descriptions may also contain sub-headings and <strong>more Markdown</strong>.</p>
 <h3>Get Application [GET]</h3>
