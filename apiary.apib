@@ -7,7 +7,7 @@ The Application API is a simple REST based API that allows you to submit and ret
 Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.
 
-# Authentication5
+# Authentication
 
 ```no-highlight
 LendingFront's APIs use token based authentication. You can get a token in the Settings page of the LendingPortal when you login as an Administrator.
@@ -31,11 +31,25 @@ API calls must be sent via https (SSL)
 
 # ApplicationList (array[ApplicationData])
 
+## NoteData
++ id: 1 (required, number) - Unique identifier
++ title: Grocery list (required) - Single line description
++ body: Buy milk - Full description of the note which supports Markdown.
+
+## NoteList (array[NoteData])
+
 # Group Application
 Group description (also with *Markdown*)
 
 ## Important Info
 Descriptions may also contain sub-headings and **more Markdown**.
+
+## Note List [/application]
+Note list description
+
++ Even
++ More
++ Markdown
 
 ### Get Application [GET]
 Retrieves an application by application_number
