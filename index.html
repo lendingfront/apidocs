@@ -197,45 +197,49 @@ It is important that the business owner agrees to the terms and conditions befor
 <pre><code class="language-http"><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span>
 </code></pre>
 <ul>
-<li>Body:</li>
+<li><p>Body:</p>
+<pre><code>  { 'last_name': 'Smith', 
+    'send_link': 'True', 
+    'city': 'New York', 
+    'first_name': 'Peter', 
+    'requested_amount': '25000', 
+    'city_owner': 'New York', 
+    'address_owner': '450 E 45th Street', 
+    'zipcode': '10019', 
+    'state': 'NY', 
+    'tax_id': '231232131', 
+    'email': u'petersmith@gmail.com', 
+    'phone_owner': u'3475608900', 
+    'phone': '2123233445', 
+    'ssn': '1232', 
+    'address': '400 5th Ave', 
+    'origination_id': '456700', 
+    'zipcode_owner': '07047', 
+    'state_owner': 'NJ', 
+    'name': 'Data Service 12', 
+    'birthday': '1/1/1975'
+  }
+</code></pre></li>
 </ul>
-<p>{ 'last_name’: 'Smith’,
-'send_link’: 'True’,
-'city’: 'New York’,
-'first_name’: 'Peter’,
-'requested_amount’: '25000’,
-'city_owner’: 'New York’,
-'address_owner’: '450 E 45th Street’,
-'zipcode’: '10019’,
-'state’: 'NY’,
-'tax_id’: '231232131’,
-'email’: u’<a href="mailto:petersmith@gmail.com">petersmith@gmail.com</a>’,
-'phone_owner’: u’3475608900’,
-'phone’: '2123233445’,
-'ssn’: '1232’,
-'address’: '400 5th Ave’,
-'origination_id’: '456700’,
-'zipcode_owner’: '07047’,
-'state_owner’: 'NJ’,
-'name’: 'Data Service 12’,
-'birthday’: ‘1/1/1975’
-}</p>
 <h3>Response</h3>
 <ul>
 <li><p>Success Response</p>
-<p>{ 'status’: 'OK’,
-'application_number’: ‘1234567890’
-}</p></li>
+<pre><code>  { 'status': 'OK',
+    'application_number': '1234567890'
+  }
+</code></pre></li>
 <li><p>Error Response</p>
-<p>{
-'status’: 'ERROR’,
-'message’: [error message]
-}</p></li>
+<pre><code>  {
+    'status': 'ERROR',
+    'message': [error message]
+  }
+</code></pre></li>
 <li><p>Duplicate Response</p>
-<p>{
-'status’: 'WARN’,
-'message’: ‘A duplicate application was found. Your application was not created’
-}</p></li>
+<pre><code>  {
+    'status': 'WARN',
+    'message': 'A duplicate application was found. Your application was not created'
+  }
+</code></pre></li>
 </ul>
 <h2>GET Application</h2>
 <pre><code class="language-http"><span class="hljs-attribute">Resource</span>: <span class="hljs-string">/application</span>
