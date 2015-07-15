@@ -145,7 +145,7 @@ a.list-group-item.heading:hover {
 </style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#resources-menu" href="#resources" class="list-group-item heading collapsed">Resources</a><div id="resources-menu"><a href="#resources-application" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Application</a><a href="#resources-application-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Get Application</span></a><a href="#resources-application-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Create New Application</span></a></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
 <p>Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.</p>
-<h2>Authentication3</h2>
+<h3>Authentication3</h3>
 <pre><code class="language-no-highlight">LendingFront's APIs use token based authentication. You can get a key in the Settings page of the 
 LendingPortal. The setting page is only available to Administrator users.
 
@@ -153,7 +153,7 @@ During the initial pilot, LendingFront will manually provide you with a key.
 
 API calls must be sent via https (SSL)
 </code></pre>
-<h2>Testing Host</h2>
+<h3>Testing Host</h3>
 <p>LendingFront will provide the testing URL</p>
 </div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="resources">Resources&nbsp;<a href="#resources"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="resources-application">Application&nbsp;<a href="#resources-application"><i class="fa fa-link"></i></a></h4><section id="resources-application-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get Application</span></div><div style="float:left"><a href="#resources-application-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/application</code></div></div><div class="panel-body"><p>Retrieves an application by application_number.</p>
 <p>Attributes:</p>
@@ -162,7 +162,7 @@ API calls must be sent via https (SSL)
 <tr><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>user_token</td><td>API Key assigned by LendingFront</td></tr>
+<tr><td>key</td><td>API Key assigned by LendingFront</td></tr>
 <tr><td>application_number</td><td>unique number that identifies a submitted application. This number is returned by the create application endpoint.</td></tr>
 </tbody>
 </table>
@@ -206,7 +206,7 @@ API calls must be sent via https (SSL)
 <tr><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>user_token</td><td>API Key assigned by LendingFront</td></tr>
+<tr><td>key</td><td>API Key assigned by LendingFront</td></tr>
 <tr><td>name</td><td>Business name</td></tr>
 <tr><td>tax_id</td><td>The 9 digit Tax ID or EIN</td></tr>
 <tr><td>phone</td><td>Main business phone</td></tr>
