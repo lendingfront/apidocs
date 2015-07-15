@@ -142,19 +142,17 @@ a.list-group-item.heading:hover {
     max-width: 212px;
   }
 }
-</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#application-menu" href="#application" class="list-group-item heading collapsed">Application</a><div id="application-menu"></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
+</style></head><body><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><div class="col-md-3"><nav id="nav" class="hidden-sm hidden-xs affix nav"><div class="list-group"><a data-toggle="" data-target="#application-menu" href="#application" class="list-group-item heading collapsed">Application</a><div id="application-menu"><a href="#application-application-list" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item">Application List</a><a href="#application-application-list-get" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-info"><i class="fa fa-arrow-down"></i></span><span class="indent">Get Application</span></a><a href="#application-application-list-post" style="border-top-left-radius: 0; border-top-right-radius: 0" class="list-group-item"><span class="badge alert-success"><i class="fa fa-plus"></i></span><span class="indent">Create New Application</span></a></div></div></nav></div><div class="col-md-8"><div><header><div class="page-header"><h1 id="top">LendingFront Application API</h1></div></header><div class="description"><p>The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront’s platform.</p>
 <p>Our platform collects Social, Cash Flow and Credit Bureau data electronically.
 It is important that the business owner agrees to the terms and conditions before the application is submitted.</p>
-<h1>Authentication1</h1>
+<h1>Authentication9</h1>
 <pre><code class="language-no-highlight">LendingFront's APIs use token based authentication. You can get a token in the Settings page of the LendingPortal when you login as an Administrator.
 
 During the initial pilot, LendingFront will manually provide the token.
 
 API calls must be sent via https (SSL)
 </code></pre>
-</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="application">Application&nbsp;<a href="#application"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h2>[/application]</h2>
-<h3>Get Application [GET]</h3>
-<p>Retrieves an application by application_number</p>
+</div></div><div><div class="panel panel-default"><div class="panel-heading"><h3 id="application">Application&nbsp;<a href="#application"><i class="fa fa-link"></i></a></h3></div><div class="panel-body"><h4 id="application-application-list">Application List&nbsp;<a href="#application-application-list"><i class="fa fa-link"></i></a></h4><section id="application-application-list-get" class="panel panel-info"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Get Application</span></div><div style="float:left"><a href="#application-application-list-get" class="btn btn-xs btn-info">GET</a></div><div style="overflow:hidden"><code>/application</code></div></div><div class="panel-body"><p>Retrieves an application by application_number</p>
 <table>
 <thead>
 <tr><th>Name</th><th>Description</th></tr>
@@ -164,53 +162,40 @@ API calls must be sent via https (SSL)
 <tr><td>application_number</td><td>unique number that identifies a submitted application. This number is returned by the submit application endpoint.</td></tr>
 </tbody>
 </table>
-<ul>
-<li><p>Request  (application/json)</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
-</code></pre></li>
-<li><p>Body</p>
-<pre><code>  {
-      application_number: '196415838638'
-  }
-</code></pre></li>
-</ul></li>
-<li><p>Response 200 (application/json)</p>
-<pre><code>  +  success
-  
-          {
-              'status': 'OK',
-              'application_number':'196415838638',
-              'requested_amount':Decimal('54000'),
-              'loan_amount': Decimal('45000'),
-              'origination_id': '345433',
-              'term': 6,
-              'origination_fee':,
-              'cents_on_the_dollar': Decimal('0.15'),
-              'decision': 'APPROVED',
-              'status': 'FUNDED',
-              'create_date': '07/13/2015',
-              'decision_date': '07/13/2015'
-          }
-          
-  +  Not Found 
-  
-          {
-              'status': 'OK',
-              'message': 'Application not found'
-          }
-  
-  +  Error 
-  
-          {
-              'status': 'ERROR',
-              'message': 'An error ocurred while processing the request'
-          }
-</code></pre></li>
-</ul>
-<h3>Create New Application [POST]</h3>
-<p>Create New Application</p>
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#1c9b8f7ed603df4863dbc8465e1a12c7" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="1c9b8f7ed603df4863dbc8465e1a12c7" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span><br></code></pre><h5>Body</h5><pre><code>{
+    <span class="hljs-attribute">application_number</span>: <span class="hljs-string">'196415838638'</span>
+}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#3461d9144ad3210ef481a53d8e5580f7" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="3461d9144ad3210ef481a53d8e5580f7" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code><span class="hljs-subst">+</span>  success
+
+        {
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'OK'</span>,
+            <span class="hljs-string">'application_number'</span>:<span class="hljs-string">'196415838638'</span>,
+            <span class="hljs-string">'requested_amount'</span>:<span class="hljs-built_in">Decimal</span>(<span class="hljs-string">'54000'</span>),
+            <span class="hljs-string">'loan_amount'</span>: <span class="hljs-built_in">Decimal</span>(<span class="hljs-string">'45000'</span>),
+            <span class="hljs-string">'origination_id'</span>: <span class="hljs-string">'345433'</span>,
+            <span class="hljs-string">'term'</span>: <span class="hljs-number">6</span>,
+            <span class="hljs-string">'origination_fee'</span>:,
+            <span class="hljs-string">'cents_on_the_dollar'</span>: <span class="hljs-built_in">Decimal</span>(<span class="hljs-string">'0.15'</span>),
+            <span class="hljs-string">'decision'</span>: <span class="hljs-string">'APPROVED'</span>,
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'FUNDED'</span>,
+            <span class="hljs-string">'create_date'</span>: <span class="hljs-string">'07/13/2015'</span>,
+            <span class="hljs-string">'decision_date'</span>: <span class="hljs-string">'07/13/2015'</span>
+        }
+
+<span class="hljs-subst">+</span>  <span class="hljs-literal">Not</span> Found 
+
+        {
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'OK'</span>,
+            <span class="hljs-string">'message'</span>: <span class="hljs-string">'Application not found'</span>
+        }
+
+<span class="hljs-subst">+</span>  Error 
+
+        {
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'ERROR'</span>,
+            <span class="hljs-string">'message'</span>: <span class="hljs-string">'An error ocurred while processing the request'</span>
+        }
+</code></pre></li></ul></section><section id="application-application-list-post" class="panel panel-success"><div class="panel-heading"><div style="float:right"><span style="text-transform: lowercase">Create New Application</span></div><div style="float:left"><a href="#application-application-list-post" class="btn btn-xs btn-success">POST</a></div><div style="overflow:hidden"><code>/application</code></div></div><div class="panel-body"><p>Create New Application</p>
 <p>An Application has the following attributes:</p>
 <table>
 <thead>
@@ -257,59 +242,47 @@ API calls must be sent via https (SSL)
 <tr><td>send_link</td><td>True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront’s platform</td></tr>
 </tbody>
 </table>
-<ul>
-<li><p>Request (application/json)</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
-</code></pre></li>
-<li><p>Body</p>
-<pre><code>  { 'last_name': 'Smith', 
-    'send_link': 'True', 
-    'city': 'New York', 
-    'first_name': 'Peter', 
-    'requested_amount': '25000', 
-    'city_owner': 'New York', 
-    'address_owner': '450 E 45th Street', 
-    'zipcode': '10019', 
-    'state': 'NY', 
-    'tax_id': '231232131', 
-    'email': u'petersmith@gmail.com', 
-    'phone_owner': u'3475608900', 
-    'phone': '2123233445', 
-    'ssn': '1232', 
-    'address': '400 5th Ave', 
-    'origination_id': '456700', 
-    'zipcode_owner': '07047', 
-    'state_owner': 'NJ', 
-    'name': 'Data Service 12', 
-    'birthday': '1/1/1975'
-  }
-</code></pre></li>
-</ul></li>
-<li><p>Response 200 (application/json)</p>
-<pre><code>  + Success  
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#167ed79506320eb4a184b40a3469d9da" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="167ed79506320eb4a184b40a3469d9da" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span><br></code></pre><h5>Body</h5><pre><code>{ <span class="hljs-string">'last_name'</span>: <span class="hljs-string">'Smith'</span>, 
+  <span class="hljs-string">'send_link'</span>: <span class="hljs-string">'True'</span>, 
+  <span class="hljs-string">'city'</span>: <span class="hljs-string">'New York'</span>, 
+  <span class="hljs-string">'first_name'</span>: <span class="hljs-string">'Peter'</span>, 
+  <span class="hljs-string">'requested_amount'</span>: <span class="hljs-string">'25000'</span>, 
+  <span class="hljs-string">'city_owner'</span>: <span class="hljs-string">'New York'</span>, 
+  <span class="hljs-string">'address_owner'</span>: <span class="hljs-string">'450 E 45th Street'</span>, 
+  <span class="hljs-string">'zipcode'</span>: <span class="hljs-string">'10019'</span>, 
+  <span class="hljs-string">'state'</span>: <span class="hljs-string">'NY'</span>, 
+  <span class="hljs-string">'tax_id'</span>: <span class="hljs-string">'231232131'</span>, 
+  <span class="hljs-string">'email'</span>: <span class="hljs-string">u'petersmith@gmail.com'</span>, 
+  <span class="hljs-string">'phone_owner'</span>: <span class="hljs-string">u'3475608900'</span>, 
+  <span class="hljs-string">'phone'</span>: <span class="hljs-string">'2123233445'</span>, 
+  <span class="hljs-string">'ssn'</span>: <span class="hljs-string">'1232'</span>, 
+  <span class="hljs-string">'address'</span>: <span class="hljs-string">'400 5th Ave'</span>, 
+  <span class="hljs-string">'origination_id'</span>: <span class="hljs-string">'456700'</span>, 
+  <span class="hljs-string">'zipcode_owner'</span>: <span class="hljs-string">'07047'</span>, 
+  <span class="hljs-string">'state_owner'</span>: <span class="hljs-string">'NJ'</span>, 
+  <span class="hljs-string">'name'</span>: <span class="hljs-string">'Data Service 12'</span>, 
+  <span class="hljs-string">'birthday'</span>: <span class="hljs-string">'1/1/1975'</span>
+}
+</code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#b6f579effe98a4772a5abc61abec2e42" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="b6f579effe98a4772a5abc61abec2e42" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>+ Success  
 
-      { 'status': 'OK',
-        'application_number': '1234567890'
-      }
+    { <span class="hljs-string">'status'</span>: <span class="hljs-string">'OK'</span>,
+      <span class="hljs-string">'application_number'</span>: <span class="hljs-string">'1234567890'</span>
+    }
 
-  + Error  
++ <span class="hljs-built_in">Error</span>  
 
-      {
-        'status': 'ERROR',
-        'message': [error message]
-      }
+    {
+      <span class="hljs-string">'status'</span>: <span class="hljs-string">'ERROR'</span>,
+      <span class="hljs-string">'message'</span>: [error message]
+    }
 
-  + Duplicate  
++ Duplicate  
 
-      {
-        'status': 'WARN',
-        'message': 'A duplicate application was found. Your application was not created'
-      }
-</code></pre></li>
-</ul>
-</div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 15 Jul 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
+    {
+      <span class="hljs-string">'status'</span>: <span class="hljs-string">'WARN'</span>,
+      <span class="hljs-string">'message'</span>: <span class="hljs-string">'A duplicate application was found. Your application was not created'</span>
+    }
+</code></pre></li></ul></section></div></div></div></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 15 Jul 2015</p><div id="localFile" style="display: none; position: absolute; top: 0; left: 0; width: 100%; color: white; background: red; font-size: 150%; text-align: center; padding: 1em;">This page may not display correctly when opened as a local file. Instead, view it from a web server.
 
 </div></body><script src="//code.jquery.com/jquery-1.11.0.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script>(function() {
   if (location.protocol === 'file:') {
