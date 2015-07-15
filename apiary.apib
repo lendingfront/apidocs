@@ -20,6 +20,28 @@ API calls must be sent via https (SSL)
 
 Will be provided via email
 
+# Data Structures
+
+## NoteData
++ id: 1 (required, number) - Unique identifier
++ title: Grocery list (required) - Single line description
++ body: Buy milk - Full description of the note which supports Markdown.
+
+## NoteList (array[NoteData])
+
+# Group Notes
+Group description (also with *Markdown*)
+
+## Important Info
+Descriptions may also contain sub-headings and **more Markdown**.
+
+## Note List [/notes]
+Note list description
+
++ Even
++ More
++ Markdown
+
 ### Get Notes [GET]
 Get a list of notes.
 
@@ -29,6 +51,8 @@ Get a list of notes.
 
             X-Request-ID: f72fc914
             X-Response-Time: 4ms
+
+    + Attributes (NoteList)
 
 ### Create New Application [POST]
 Create New Application
