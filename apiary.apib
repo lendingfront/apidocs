@@ -32,33 +32,33 @@ Name | Description
 user_token  | API Key assigned by LendingFront
 name | Business name
 tax_id | The 9 digit Tax ID or EIN
-phone | Business Phone
-address |
-city |
-state |
-zipcode
+phone | Main business phone 
+address | Address line
+city | City 
+state | State (NY, NJ, etc)
+zipcode | Postal code
  
 Owner information:
 
 Name | Description
 ---- | -----------
-first_name |
-last_name |
-birthday |
-phone_owner |
+first_name | First Name of the primary owner
+last_name | Last Name of the primary owner
+birthday | Birthday of the primary owner
+phone_owner | Primary phone number of owner
 ssn | Last 4 digits of the social security number
 email | e-mail where loan related communications should be sent (including loan docs)
-city_owner |
-state_owner |
-address_owner |
-zipcode_owner |
+city_owner | City where the owner's home is located
+state_owner | State where the owner's home is located
+address_owner | Owner's Address 
+zipcode_owner | Owner's home Postal Code
 
 Optional Fields:
 
 Name | Description
 ---- | -----------
-years_business |
-estimated_annual_revenue |
+years_business | Number of years in business (e.g 2, 3)
+estimated_annual_revenue | Self provided annual revenue 
 origination_id | the application number of the application in your (CRM) system. 
 send_link | True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
 
@@ -124,15 +124,14 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
 Resource: /application
 ```
 
-#### Header Attributes
++ Attributes
 
-+ user_token: API Key assigned by LendingFront
+Name | Description
+---- | -----------
+user_token | API Key assigned by LendingFront
+application_number | unique number that identifies a submitted application. This number is returned by the submit application endpoint.
 
-#### Body Attributes
-
-+ application_number: unique number that identifies a submitted application. This number is returned by the submit application endpoint.
-
-+ Request 
+Request 
 
 + Headers
 
