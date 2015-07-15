@@ -22,27 +22,20 @@ Will be provided via email
 
 # Data Structures
 
-## NoteData
-+ id: 1 (required, number) - Unique identifier
-+ title: Grocery list (required) - Single line description
-+ body: Buy milk - Full description of the note which supports Markdown.
-
-## NoteList (array[NoteData])
+## ApplicationData
++ user_token: eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo (required) - API Key assigned by LendingFront
++ name: Super Deli (required) - Business name
++ tax_id: 876675543 (required) - The 9 digit Tax ID or EIN
++ phone: 2123455456 (required) - Main business phone 
++ address: 450 5th Ave 3rd Floor (required) - Address line
++ city: New York (required) - City 
++ state: NY (required) - State (NY, NJ, etc)
++ zipcode: 10019 (required) - Postal code
 
 # Group Notes
-Group description (also with *Markdown*)
+My Notes
 
-## Important Info
-Descriptions may also contain sub-headings and **more Markdown**.
-
-## Note List [/notes]
-Note list description
-
-+ Even
-+ More
-+ Markdown
-
-### Get Notes [GET]
+### Get Application [GET]
 Get a list of notes.
 
 + Response 200 (application/json)
