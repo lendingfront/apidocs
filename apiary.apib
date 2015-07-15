@@ -63,7 +63,7 @@ estimated_annual_revenue | Self provided annual revenue
 origination_id | the application number of the application in your (CRM) system. 
 send_link | True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
 
-+ Request (json)
+### Request (json)
 
 + Headers
 
@@ -98,20 +98,20 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
 
 ### Response
 
-+ Success Response 
++ Success  
 
         { 'status': 'OK',
           'application_number': '1234567890'
         }
 
-+ Error Response 
++ Error  
 
         {
           'status': 'ERROR',
           'message': [error message]
         }
 
-+ Duplicate Response 
++ Duplicate  
 
         {
           'status': 'WARN',
@@ -132,7 +132,7 @@ Name | Description
 user_token | API Key assigned by LendingFront
 application_number | unique number that identifies a submitted application. This number is returned by the submit application endpoint.
 
-Request 
+### Request 
 
 + Headers
 
@@ -146,9 +146,9 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
             application_number: '196415838638'
         }
 
-+ Response
+### Response
 
-+ Response success
++  success
 
         {
             'status': 'OK',
@@ -165,14 +165,14 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
             'decision_date': '07/13/2015'
         }
         
-+ Response Not Found 
++  Not Found 
 
         {
             'status': 'OK',
             'message': 'Application not found'
         }
 
-+ Response Error 
++  Error 
 
         {
             'status': 'ERROR',
