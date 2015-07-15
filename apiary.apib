@@ -20,8 +20,6 @@ API calls must be sent via https (SSL)
 
 Will be provided via email
 
-### Create New Note [POST]
-
 ### Create New Application [POST]
 Create New Application
 
@@ -65,15 +63,15 @@ estimated_annual_revenue | Self provided annual revenue
 origination_id | the application number of the application in your (CRM) system. 
 send_link | True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
 
-### Request 
++ Request 
 
-+ Headers
+    + Headers
 
-```http
-Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
-```
+    ```http
+    Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+    ```
 
-+ Body:
+    + Body:
 
         { 'last_name': 'Smith', 
           'send_link': 'True', 
@@ -98,22 +96,22 @@ Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
         }
 
 
-### Response
++ Response 200 (application/json)
 
-+ Success  
+    + Success  
 
         { 'status': 'OK',
           'application_number': '1234567890'
         }
 
-+ Error  
+    + Error  
 
         {
           'status': 'ERROR',
           'message': [error message]
         }
 
-+ Duplicate  
+    + Duplicate  
 
         {
           'status': 'WARN',
