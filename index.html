@@ -209,11 +209,11 @@ API calls must be sent via https (SSL)
 <tr><td>key</td><td>API Key assigned by LendingFront</td></tr>
 <tr><td>business_name</td><td>Business name</td></tr>
 <tr><td>tax_id</td><td>The 9 digit Tax ID or EIN</td></tr>
-<tr><td>phone</td><td>Main business phone</td></tr>
-<tr><td>address</td><td>Address line</td></tr>
-<tr><td>city</td><td>City</td></tr>
-<tr><td>state</td><td>State (NY, NJ, etc)</td></tr>
-<tr><td>zipcode</td><td>Postal code</td></tr>
+<tr><td>business_phone</td><td>Main business phone</td></tr>
+<tr><td>business_address</td><td>Address line</td></tr>
+<tr><td>business_city</td><td>City</td></tr>
+<tr><td>business_state</td><td>State (NY, NJ, etc)</td></tr>
+<tr><td>business_zipcode</td><td>Postal code</td></tr>
 </tbody>
 </table>
 <p>Owner information:</p>
@@ -246,26 +246,27 @@ API calls must be sent via https (SSL)
 <tr><td>send_link</td><td>True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront’s platform</td></tr>
 </tbody>
 </table>
-</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#3376d92e266f37f1f4e5e42898f997aa" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="3376d92e266f37f1f4e5e42898f997aa" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span><br></code></pre><h5>Body</h5><pre><code>{ <span class="hljs-string">'last_name'</span>: <span class="hljs-string">'Smith'</span>, 
-  <span class="hljs-string">'send_link'</span>: <span class="hljs-string">'True'</span>, 
-  <span class="hljs-string">'city'</span>: <span class="hljs-string">'New York'</span>, 
-  <span class="hljs-string">'first_name'</span>: <span class="hljs-string">'Peter'</span>, 
+</div><ul class="list-group"><li class="list-group-item"><strong>Request</strong><a data-toggle="collapse" data-target="#357938b0f9b8bf2ce49226112517f311" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="357938b0f9b8bf2ce49226112517f311" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo</span><br></code></pre><h5>Body</h5><pre><code>{ 
+  <span class="hljs-string">'tax_id'</span>: <span class="hljs-string">'231232131'</span>,               
+  <span class="hljs-string">'business_name'</span>: <span class="hljs-string">'Data Service 12'</span>,  
+  <span class="hljs-string">'business_phone'</span>: <span class="hljs-string">'2123233445'</span>, 
+  <span class="hljs-string">'business_address'</span>: <span class="hljs-string">'400 5th Ave'</span>,               
+  <span class="hljs-string">'business_city'</span>: <span class="hljs-string">'New York'</span>, 
+  <span class="hljs-string">'business_state'</span>: <span class="hljs-string">'NY'</span>, 
+  <span class="hljs-string">'business_zipcode'</span>: <span class="hljs-string">'10019'</span>, 
+  <span class="hljs-string">'owner_email'</span>: <span class="hljs-string">u'petersmith@gmail.com'</span>, 
+  <span class="hljs-string">'first_name'</span>: <span class="hljs-string">'Peter'</span>,               
+  <span class="hljs-string">'last_name'</span>: <span class="hljs-string">'Smith'</span>, 
+  <span class="hljs-string">'ssn'</span>: <span class="hljs-string">'1232'</span>,               
+  <span class="hljs-string">'owner_phone'</span>: <span class="hljs-string">u'3475608900'</span>,               
+  <span class="hljs-string">'owner_address'</span>: <span class="hljs-string">'450 E 45th Street'</span>,               
+  <span class="hljs-string">'owner_city'</span>: <span class="hljs-string">'New York'</span>,               
+  <span class="hljs-string">'owner_state'</span>: <span class="hljs-string">'NJ'</span>, 
+  <span class="hljs-string">'owner_zipcode'</span>: <span class="hljs-string">'07047'</span>,               
+  <span class="hljs-string">'birthday'</span>: <span class="hljs-string">'1/1/1975'</span>,
   <span class="hljs-string">'requested_amount'</span>: <span class="hljs-string">'25000'</span>, 
-  <span class="hljs-string">'city_owner'</span>: <span class="hljs-string">'New York'</span>, 
-  <span class="hljs-string">'address_owner'</span>: <span class="hljs-string">'450 E 45th Street'</span>, 
-  <span class="hljs-string">'zipcode'</span>: <span class="hljs-string">'10019'</span>, 
-  <span class="hljs-string">'state'</span>: <span class="hljs-string">'NY'</span>, 
-  <span class="hljs-string">'tax_id'</span>: <span class="hljs-string">'231232131'</span>, 
-  <span class="hljs-string">'email'</span>: <span class="hljs-string">u'petersmith@gmail.com'</span>, 
-  <span class="hljs-string">'phone_owner'</span>: <span class="hljs-string">u'3475608900'</span>, 
-  <span class="hljs-string">'phone'</span>: <span class="hljs-string">'2123233445'</span>, 
-  <span class="hljs-string">'ssn'</span>: <span class="hljs-string">'1232'</span>, 
-  <span class="hljs-string">'address'</span>: <span class="hljs-string">'400 5th Ave'</span>, 
-  <span class="hljs-string">'origination_id'</span>: <span class="hljs-string">'456700'</span>, 
-  <span class="hljs-string">'zipcode_owner'</span>: <span class="hljs-string">'07047'</span>, 
-  <span class="hljs-string">'state_owner'</span>: <span class="hljs-string">'NJ'</span>, 
-  <span class="hljs-string">'name'</span>: <span class="hljs-string">'Data Service 12'</span>, 
-  <span class="hljs-string">'birthday'</span>: <span class="hljs-string">'1/1/1975'</span>
+  <span class="hljs-string">'origination_id'</span>: <span class="hljs-string">'456700'</span>,               
+  <span class="hljs-string">'send_link'</span>: <span class="hljs-string">'True'</span>
 }
 </code></pre></li><li class="list-group-item"><strong>Response&nbsp;&nbsp;<code>200</code></strong><a data-toggle="collapse" data-target="#b8abfdb21eae8450299f271cf9a66264" class="pull-right collapsed"><span class="closed">Show</span><span class="open">Hide</span></a></li><li id="b8abfdb21eae8450299f271cf9a66264" class="list-group-item panel-collapse collapse"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br></code></pre><h5>Body</h5><pre><code>+ Success  
 
