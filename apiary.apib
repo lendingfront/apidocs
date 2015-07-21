@@ -110,11 +110,11 @@ Name | Description
 key | API Key assigned by LendingFront
 business_name | Business name
 tax_id | The 9 digit Tax ID or EIN
-phone | Main business phone 
-address | Address line
-city | City 
-state | State (NY, NJ, etc)
-zipcode | Postal code
+business_phone | Main business phone 
+business_address | Address line
+business_city | City 
+business_state | State (NY, NJ, etc)
+business_zipcode | Postal code
  
 Owner information:
 
@@ -148,26 +148,27 @@ send_link | True if a bank enrollment email should be sent to the business to co
 
     + Body
 
-            { 'last_name': 'Smith', 
-              'send_link': 'True', 
-              'city': 'New York', 
-              'first_name': 'Peter', 
+            { 
+              'tax_id': '231232131',               
+              'business_name': 'Data Service 12',  
+              'business_phone': '2123233445', 
+              'business_address': '400 5th Ave',               
+              'business_city': 'New York', 
+              'business_state': 'NY', 
+              'business_zipcode': '10019', 
+              'owner_email': u'petersmith@gmail.com', 
+              'first_name': 'Peter',               
+              'last_name': 'Smith', 
+              'ssn': '1232',               
+              'owner_phone': u'3475608900',               
+              'owner_address': '450 E 45th Street',               
+              'owner_city': 'New York',               
+              'owner_state': 'NJ', 
+              'owner_zipcode': '07047',               
+              'birthday': '1/1/1975',
               'requested_amount': '25000', 
-              'city_owner': 'New York', 
-              'address_owner': '450 E 45th Street', 
-              'zipcode': '10019', 
-              'state': 'NY', 
-              'tax_id': '231232131', 
-              'email': u'petersmith@gmail.com', 
-              'phone_owner': u'3475608900', 
-              'phone': '2123233445', 
-              'ssn': '1232', 
-              'address': '400 5th Ave', 
-              'origination_id': '456700', 
-              'zipcode_owner': '07047', 
-              'state_owner': 'NJ', 
-              'name': 'Data Service 12', 
-              'birthday': '1/1/1975'
+              'origination_id': '456700',               
+              'send_link': 'True'
             }
             
 
