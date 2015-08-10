@@ -2,10 +2,10 @@ FORMAT: 1A
 
 # LendingFront API
 
-The Application API is a simple REST based API that allows you to submit and retrieve loan applications to/from LendingFront's platform.
+The LendingFront API is a simple REST based API that allows you to submit application, data source, decision, underwriting and loan requests to LendingFront's platform.
 
 Our platform collects Social, Cash Flow and Credit Bureau data electronically.
-It is important that the business owner agrees to the terms and conditions before the application is submitted.
+It is important that the business owner agrees to the terms and conditions before requests are submitted.
 
 ### Authentication
 
@@ -199,3 +199,111 @@ send_link | True if a bank enrollment email should be sent to the business to co
 + Attributes (ApplicationData)
 
 ## Decision  [/decision]
+
+### Get Decision [GET]
+Retrieves an decision by application_number.
+
+Attributes:
+
+Name | Description
+---- | -----------
+key | API Key assigned by LendingFront
+application_number | Unique number that identifies an application. This number is returned by the create application endpoint.
+
+
++ Request  (application/json)
+
+    + Headers
+
+            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+
+
+    + Body
+
+            {
+                application_number: '196415838638'
+            }
+
++ Response 200 (application/json)
+
+        +  approve
+        
+            {
+                "status": "OK",
+                "active_status": "ACTIVE",
+                "recommendation": "APPROVE",
+                "risk_level": "HIGH",
+                "score_list": { 
+                    "custom_score": 750,
+                    "fico": 800,
+                    "lf_score": 500
+                },
+                "loan_amount": {
+                    "min": 0,
+                    "max": 45000,
+                    "recommended": 22500
+                },
+                "pricing": {
+                    "min": 0,
+                    "max": 100,
+                    "recommended": 45
+                },
+                "term": { 
+                    "min": 1,
+                    "max": 12,
+                    "recommended": 6
+                },
+                "reasons": {}
+            }
+            
+        +  decline
+        
+            {
+                "status": "OK",
+                "active_status": "ACTIVE",
+                "recommendation": "DECLINE",
+                "risk_level": "HIGH",
+                "score_list": { 
+                    "custom_score": 750,
+                    "fico": 800,
+                    "lf_score": 500
+                },
+                "loan_amount": {
+                    "min": 0,
+                    "max": 45000,
+                    "recommended": 22500
+                },
+                "pricing": {
+                    "min": 0,
+                    "max": 100,
+                    "recommended": 45
+                },
+                "term": { 
+                    "min": 1,
+                    "max": 12,
+                    "recommended": 6
+                },
+                "reasons": [
+                    "Income is too low",
+                    "Too many credit cards"
+                ]
+            }
+        
+        +  undecided
+        
+            {
+                "status": "OK",
+                "active_status": "ACTIVE",
+                "recommendation": "UNDECIDED",
+                "risk_level": "HIGH",
+                "score_list": { 
+                    "custom_score": 750,
+                    "fico": 800,
+                    "lf_score": 500
+                },
+                "reasons": {}
+            }
+
++ Attributes
+        application_number: '100456' (required)
+
