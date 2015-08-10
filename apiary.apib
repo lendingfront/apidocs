@@ -307,10 +307,10 @@ application_number | Unique number that identifies an application. This number i
 + Attributes
         application_number: '100456' (required)
 
-## Data Service  [/social]
+## Data Service  [/dataservice]
 
-### pull social data [POST]
-Pulls social data for the given application.
+### Pull social data [POST]
+Pulls social data for the given application for the first time.
 
 Attributes:
 
@@ -410,5 +410,107 @@ application_number | Unique number that identifies an application. This number i
                 "latitude": 40.704655,
                 "start_date": "11/22/2014"
             }
+
+### Get social data [GET]
+Get previously pulled social data
+
+Attributes:
+
+Name | Description
+---- | -----------
+key | API Key assigned by LendingFront
+application_number | Unique number that identifies an application. This number is returned by the create application endpoint.
+
+
++ Request  (application/json)
+
+    + Headers
+
+            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+
+    + Body
+
+            {
+                application_number: '196415838638'
+            }
+
++ Response 200 (application/json)
+
+        +  success
+        
+            {
+                "status": "OK",
+                "google_status": "OK",
+                "yelp_status": "OK",
+                "website": "www.flavorsnyc.com",
+                "end_date": "05/22/2015",
+                "price_level": 1,
+                "category": "Restaurant & Bar",
+                "business_id": 51,
+                "phone": "+1 212-668-9800",
+                "id": "OK",
+                "message": "SUCCESS",
+                "address": "74 Broad St, New York, NY 10004",
+                "category": ["Restaurant & Bar"],
+                "ratings": {
+                    "detail": {
+                        "01/08/2015": 4,
+                        "02/07/2015": 5,
+                        "03/17/2015": 3,
+                        "04/16/2015": 4,
+                        "05/18/2015": 5
+                    },
+                    "summary": {
+                        "total_ratings": 21,
+                        "average_rating": 4,
+                        "monthly": {
+                            "February": {
+                                "count": 2,
+                                "index": 3,
+                                "score":8.0
+                            },
+                            "March": {
+                                "count": 3,
+                                "index": 2,
+                                "score":5.0
+                            },
+                            "May": {
+                                "count": 2,
+                                "index": 0,
+                                "score":3.0
+                            },
+                            "December": {
+                                "count": 4,
+                                "index": 5,
+                                "score":9.0
+                            },
+                            "April": {
+                                "count": 3,
+                                "index": 1,
+                                "score":0.0
+                            },
+                            "January": {
+                                "count": 2,
+                                "index": 4,
+                                "score":1.0
+                            },
+                            "November": {
+                            "count": 5,
+                            "index": 6,
+                            "score":5.0
+                            }
+                        }
+                    }
+                },
+                "current_rating": 4.1,
+                "longitude": -74.011829,
+                "reviews": {
+                    "count_negatives":2,
+                    "count_positives":13
+                },
+                "latitude": 40.704655,
+                "start_date": "11/22/2014"
+            }
+
 
 
