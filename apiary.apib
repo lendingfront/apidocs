@@ -310,7 +310,7 @@ application_number | Unique number that identifies an application. This number i
 ## Data Service  [/dataservice]
 
 ### Pull social data [POST]
-Pulls social data for the given application for the first time.
+Pulls social data for the given application.
 
 Attributes:
 
@@ -512,6 +512,32 @@ application_number | Unique number that identifies an application. This number i
                 "start_date": "11/22/2014"
             }
 
+### Pull PayNet  [POST]
+Pull PayNet credit report
 
+Attributes:
+
+Name | Description
+---- | -----------
+key | API Key assigned by LendingFront
+application_number | Unique number that identifies an application. This number is returned by the create application endpoint.
+
+
++ Request  (application/json)
+
+    + Headers
+
+            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+
+    + Body
+
+            {
+                application_number: '196415838638'
+            }
+
++ Response 200 (application/json)
+
+        +  success
+   
 
 
