@@ -205,7 +205,7 @@ Applications status change notifications will be POSTed to the callback URL you 
 
 A separate response is returned when the application is initially created which includes the LendingFront application number (see application/create api above).
 
-The notification call can include a security token or user credentials depending on the security mechanism implemented by your API.
+The notification call can send a security token or user credentials depending on the security mechanism implemented by your API.
 
 
 Attributes:
@@ -218,7 +218,20 @@ origination_id|Application ID in your CRM software (optional)
 old_status|Previous application status
 new_status|New application status
 
+Optional attribues:
+
+Name | Description
+---- | -----------
+key|API key assigned by the lender for token based authentication
+
+or
+
+username|username of lender's API if basic authentication is used
+password|lender's API password
+
+
 + Request (application/json)
+
 
     + Body
 
