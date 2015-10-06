@@ -201,9 +201,9 @@ send_link | True if a bank enrollment email should be sent to the business to co
 ## Application Status Notification [/providedbylender]
 
 ### Application status change - Callback [POST]
-Application status change notification
+Applications status change notifications will be POSTed to the callback URL you provide to LendingFront during the implementation process.
+A separate response is returned when the application is initially created which included the LendingFront application number.
 
-Applications status changes will be POSTed to the callback URL you provide to LendingFront during the implementation process.
 
 Attributes:
 
