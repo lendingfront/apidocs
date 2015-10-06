@@ -198,10 +198,12 @@ send_link | True if a bank enrollment email should be sent to the business to co
 
 + Attributes (ApplicationData)
 
-## Application  [/providedbylender]
+## Application Status Notification [/providedbylender]
 
 ### Application status change - Callback [POST]
 Application status change notification
+
+Applications status changes will be POSTed to the callback URL you provide to LendingFront during the implementation process.
 
 Attributes:
 
@@ -218,7 +220,7 @@ new_status|New application status
     + Body
 
             { 
-              'application_number': 231232131,
+              application_number' 231232131,
               old_status: 'APPLICATION_RECEIVED',
               new_status: 'UNDERWRITING',
               origination_id: 1230492
