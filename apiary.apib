@@ -198,6 +198,30 @@ send_link | True if a bank enrollment email should be sent to the business to co
 
 + Attributes (ApplicationData)
 
+### Application status change - Callback [POST]
+Application status change notification
+
+Attributes:
+
+Name | Description
+---- | -----------
+key|API Key assigned by the lender (optional)
+application_number | Unique number assigned to the application when it was created
+origination_id|Application ID in your CRM software (optional)
+old_status|Previous application status
+new_status|New application status
+
++ Request (application/json)
+
+    + Body
+
+            { 
+              'application_number': 231232131,
+              old_status: 'APPLICATION_RECEIVED',
+              new_status: 'UNDERWRITING',
+              origination_id: 1230492
+              }
+
 ## Decision Engine [/decision]
 
 ### Get Decision [GET]
