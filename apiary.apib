@@ -41,6 +41,123 @@ During the implementation phase, LendingFront will provide the test and producti
 ## Application  [/application]
 
 
+
+### Create New Application [POST]
+Create New Application
+
+Attributes:
+
+Name | Description
+---- | -----------
+key | API Key assigned by LendingFront
+business_name | Business name
+tax_id | The 9 digit Tax ID or EIN
+business_phone | Main business phone (without dashes, spaces or parenthesis)
+business_address | Business Address line
+business_city | City 
+business_state | State (NY, NJ, etc)
+business_zipcode | Postal code
+ 
+Owner information:
+
+Name | Description
+---- | -----------
+first_name | First Name of the primary owner
+last_name | Last Name of the primary owner
+birthday | Birthday of the primary owner
+owner_phone | Primary phone number of owner
+ssn | Social security number (9 digits)
+owner_email | E-mail address used for loan related communications including sending and signing loan docs
+owner_city | City where the owner's home is located
+owner_state | State where the owner's home is located
+owner_address | Owner's home Address 
+owner_zipcode | Owner's home Postal Code
+bank_account_source | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
+
+Optional Fields:
+
+Name | Description
+---- | -----------
+
+mailing_address 
+mailing_city
+mailing_state
+mailing_postal_code
+average_monthly_sales
+bank_account_number
+bank_routing_number
+legal_entity_type | Corporation, Sole Propriertorship, LLC, Limited Partnership, Partnership, LLC, Other
+requested_amount | Request Loan/Advance amount
+years_business | Number of years in business (e.g 2, 3)
+origination_id | The application number of the application in your (CRM) system. 
+title | The owner's title
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
+
+    + Body
+
+            { 
+              'tax_id': '231232131',               
+              'business_name': 'Super Deli Stores, Inc',
+              'dba': 'Super Deli',                
+              'business_phone': '2123233445', 
+              'business_address': '400 5th Ave',               
+              'business_city': 'New York', 
+              'business_state': 'NY', 
+              'business_zipcode': '10019', 
+              'mailing_address': '400 5th Ave',               
+              'mailing_city': 'New York', 
+              'mailing_state': 'NY', 
+              'mailing_postal_code': '10019', 
+              'average_monthly_sales': 175000, 
+              'bank_account_number': '45676778', 
+              'bank_routing_number': '021000089', 
+              'years_business': 1.2,               
+              'legal_entity_type': 'Corporation',               
+              'requested_amount': '25000', 
+              'origination_id': '456700',               
+              'owner_email': u'petersmith@gmail.com', 
+              'first_name': 'Peter',               
+              'last_name': 'Smith', 
+              'ssn': '123256789',               
+              'owner_phone': u'3475608900',               
+              'owner_address': '450 E 45th Street',               
+              'owner_city': 'New York',               
+              'owner_state': 'NJ', 
+              'owner_zipcode': '07047',               
+              'birthday': '1/1/1975',
+              bank_account_source = 1
+            }
+            
+
++ Response 200 (application/json)
+
+        + Success  
+    
+            { 'status': 'OK',
+              'application_number': '1234567890'
+            }
+
+        + Error  
+    
+            {
+              'status': 'ERROR',
+              'message': [error message]
+            }
+
+        + Duplicate  
+    
+            {
+              'status': 'WARN',
+              'message': 'A duplicate application was found. Your application was not created'
+            }
+
++ Attributes (ApplicationData)
+
 ### Get Application [GET]
 Retrieves an application by application_number.
 
@@ -70,17 +187,23 @@ application_number | Unique number that identifies a submitted application. This
         
                 {
                     'status': 'OK',
-                    'application_number':'196415838638',
-                    'requested_amount':Decimal('54000'),
-                    'loan_amount': Decimal('45000'),
-                    'origination_id': '345433',
-                    'term': 6,
-                    'origination_fee':,
-                    'cents_on_the_dollar': Decimal('0.15'),
-                    'decision': 'APPROVED',
-                    'status': 'FUNDED',
-                    'create_date': '07/13/2015',
-                    'decision_date': '07/13/2015'
+                    'application' : {
+                                        'application_number':'196415838638',
+                                        'requested_amount':Decimal('54000'),
+                                        'loan_amount': Decimal('45000'),
+                                        'origination_id': '345433',
+                                        'term': 6,
+                                        'origination_fee': Decimal('350'),
+                                        'cents_on_the_dollar': Decimal('0.15'),
+                                        'product_type: 'Advance', 
+                                        'decision': 'APPROVED',
+                                        'status': 'FUNDED',
+                                        'daily_payment': Decimal('89.45'),
+                                        'purchased_amount': Decimal('24,650'),
+                                        'create_date': '07/13/2015',
+                                        'decision_date': '07/13/2015',
+                                        'underwriting_date': '07/13/2015'
+                                    }
                 }
                 
         +  Not Found 
@@ -100,103 +223,6 @@ application_number | Unique number that identifies a submitted application. This
 + Attributes
         application_number: '100456' (required)
 
-### Create New Application [POST]
-Create New Application
-
-Attributes:
-
-Name | Description
----- | -----------
-key | API Key assigned by LendingFront
-business_name | Business name
-tax_id | The 9 digit Tax ID or EIN
-business_phone | Main business phone (without dashes, spaces or parenthesis)
-business_address | Business Address line
-business_city | City 
-business_state | State (NY, NJ, etc)
-business_zipcode | Postal code
- 
-Owner information:
-
-Name | Description
----- | -----------
-first_name | First Name of the primary owner
-last_name | Last Name of the primary owner
-birthday | Birthday of the primary owner
-owner_phone | Primary phone number of owner
-ssn | Last 4 digits of the social security number
-owner_email | E-mail address used for loan related communications including sending and signing loan docs
-owner_city | City where the owner's home is located
-owner_state | State where the owner's home is located
-owner_address | Owner's home Address 
-owner_zipcode | Owner's home Postal Code
-
-Optional Fields:
-
-Name | Description
----- | -----------
-years_business | Number of years in business (e.g 2, 3)
-estimated_annual_revenue | Self provided annual revenue 
-origination_id | The application number of the application in your (CRM) system. 
-send_link | True if a bank enrollment email should be sent to the business to connect their Operating bank account to LendingFront's platform
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: bearer eyJ24343iOiJIUzI1NiIsImV4cCI6MTQzNjk4NTA3MSwiaWF0Ijo
-
-    + Body
-
-            { 
-              'tax_id': '231232131',               
-              'business_name': 'Data Service 12',  
-              'business_phone': '2123233445', 
-              'business_address': '400 5th Ave',               
-              'business_city': 'New York', 
-              'business_state': 'NY', 
-              'business_zipcode': '10019', 
-              'owner_email': u'petersmith@gmail.com', 
-              'first_name': 'Peter',               
-              'last_name': 'Smith', 
-              'ssn': '1232',               
-              'owner_phone': u'3475608900',               
-              'owner_address': '450 E 45th Street',               
-              'owner_city': 'New York',               
-              'owner_state': 'NJ', 
-              'owner_zipcode': '07047',               
-              'birthday': '1/1/1975',
-              'requested_amount': '25000', 
-              'origination_id': '456700',               
-              'send_link': 'True'
-            }
-            
-
-
-
-+ Response 200 (application/json)
-
-        + Success  
-    
-            { 'status': 'OK',
-              'application_number': '1234567890'
-            }
-
-        + Error  
-    
-            {
-              'status': 'ERROR',
-              'message': [error message]
-            }
-
-        + Duplicate  
-    
-            {
-              'status': 'WARN',
-              'message': 'A duplicate application was found. Your application was not created'
-            }
-
-+ Attributes (ApplicationData)
 
 ## Application Status Notification [/providedbylender]
 
