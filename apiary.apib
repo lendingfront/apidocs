@@ -45,7 +45,7 @@ Attributes:
 
 Name | Description
 ---- | -----------
-key | API Key assigned by LendingFront
+key | API Key assigned by LendingFront (send in header - see Request below)
 business_name | Business name
 tax_id | The 9 digit Tax ID or EIN
 business_phone | Main business phone (without dashes, spaces or parenthesis)
@@ -86,6 +86,8 @@ requested_amount | Request Loan/Advance amount
 years_business | Number of years in business (e.g 2, 3)
 origination_id | The application number of the application in your (CRM) system. 
 title | The owner's title
+channel | ISO or Direct
+channel_email | ISO email address
 
 + Request (application/json)
 
@@ -161,7 +163,7 @@ Attributes:
 
 Name | Description
 ---- | -----------
-key | API Key assigned by LendingFront
+key | API Key assigned by LendingFront (send in header - see Request below)
 application_number | Unique number that identifies a submitted application. This number is returned by the create application endpoint.
 
 + Request  (application/json)
