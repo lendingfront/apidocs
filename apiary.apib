@@ -69,6 +69,7 @@ owner_state | State where the owner's home is located
 owner_address | Owner's home Address 
 owner_zipcode | Owner's home Postal Code
 bank_account_source | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
+channel | ISO or Direct
 
 Optional Fields:
 
@@ -86,8 +87,9 @@ requested_amount | Request Loan/Advance amount
 years_business | Number of years in business (e.g 2, 3)
 origination_id | The application number of the application in your (CRM) system. 
 title | The owner's title
-channel | ISO or Direct
-channel_email | ISO email address
+channel_email | ISO email address (required if channel = ISO)
+contact_name | ISO contact name (required if channel = ISO)
+secondary_iso_name 
 
 + Request (application/json)
 
@@ -261,5 +263,3 @@ password|lender's API password
               new_status: 'UNDERWRITING',
               origination_id: 1230492
               }
-              
-
