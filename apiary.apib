@@ -90,6 +90,8 @@ title | The owner's title
 channel_email | ISO email address (required if channel = ISO)
 contact_name | ISO contact name (required if channel = ISO)
 secondary_iso_name | Name of referring ISO
+mobile_phone | Business mobile phone
+state_of_incorporation | The 2 letter state abbreviation where the business was incorporated
 
 + Request (application/json)
 
@@ -129,7 +131,9 @@ secondary_iso_name | Name of referring ISO
               'owner_state': 'NJ', 
               'owner_zipcode': '07047',               
               'birthday': '1/1/1975',
-              'bank_account_source': 1
+              'bank_account_source': 1,
+              'state_of_incorporation': 'DE',
+              'mobile_phone': '2014565678'
             }
             
 
