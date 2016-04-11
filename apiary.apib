@@ -142,6 +142,20 @@ ownership | Owner's percentage of ownership in the business | Only numbers (e.g 
                   'state': 'NJ', 
                   'zipcode': '07047',               
                   'birthday': '1/1/1975'
+                },
+                {
+                  'email': u'secondowner@gmail.com', 
+                  'first_name': 'Matt',               
+                  'last_name': 'Simon',
+                  'title': 'Dr',
+                  'ownership': '10', 
+                  'ssn': '987654321',
+                  'phone': u'2124345554',
+                  'address': '450 E 45th Street',
+                  'city': 'San Francisco',
+                  'state': 'CA', 
+                  'zipcode': '94122',               
+                  'birthday': '1/1/1980'
                 }
               ]
             }
@@ -208,6 +222,7 @@ application_number | Unique number that identifies a submitted application. This
                     'application': {
                         'id': [application id],
                         'application_number': [application number],
+                        'status': [status],
                         'business_id': [business id],
                         'cents_on_the_dollar': [cents on the dollar],
                         'channel': [ISO or Direct],
@@ -217,7 +232,6 @@ application_number | Unique number that identifies a submitted application. This
                         'daily_payment': [daily payment],
                         'decision': [decision],
                         'decision_date': [date],
-                        'display_status': [status],
                         'docs_received_date': [date],
                         'docs_sent_date': [date],
                         'frequency_name': [frequency name],
@@ -240,7 +254,6 @@ application_number | Unique number that identifies a submitted application. This
                         'requested_amount': [requested amount],
                         'specified_percentage': [specified percentage],
                         'state': [state],
-                        'status': [status],
                         'term': [term],
                         'total_number_payments': [total number payments],
                         'underwriting_date': [date],
