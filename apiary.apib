@@ -56,6 +56,7 @@ business_state* | State (NY, NJ, etc)
 business_zipcode* | Postal code
 bank_account_source* | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
 owners* | See the 'Owners information' section
+industry_type | Business industry type
 mailing_address | Business mailing address 
 mailing_city | Business mailing city
 mailing_state | Business mailing state
@@ -104,14 +105,14 @@ ownership | Owner's percentage of ownership in the business
     + Body
 
             { 
-              'tax_id': '231232131',               
+              'tax_id': '231232131',
               'business_name': 'Super Deli Stores, Inc',
-              'dba': 'Super Deli',                
-              'business_phone': '2123233445', 
-              'business_address': '400 5th Ave',               
-              'business_city': 'New York', 
-              'business_state': 'NY', 
-              'business_zipcode': '10019', 
+              'dba': 'Super Deli',
+              'business_phone': '2123233445',
+              'business_address': '400 5th Ave',           
+              'business_city': 'New York',
+              'business_state': 'NY',
+              'business_zipcode': '10019',
               'mailing_address': '400 5th Ave',               
               'mailing_city': 'New York', 
               'mailing_state': 'NY', 
@@ -119,23 +120,30 @@ ownership | Owner's percentage of ownership in the business
               'average_monthly_sales': 175000, 
               'bank_account_number': '45676778', 
               'bank_routing_number': '021000089', 
-              'years_business': 1.2,               
-              'legal_entity_type': 'Corporation',               
+              'years_business': 1.2,
+              'legal_entity_type': 'Corporation',
+              'industry_type': 'Food and services',
               'requested_amount': '25000', 
-              'origination_id': '456700',               
-              'owner_email': u'petersmith@gmail.com', 
-              'first_name': 'Peter',               
-              'last_name': 'Smith', 
-              'ssn': '123256789',               
-              'owner_phone': u'3475608900',               
-              'owner_address': '450 E 45th Street',               
-              'owner_city': 'New York',               
-              'owner_state': 'NJ', 
-              'owner_zipcode': '07047',               
-              'birthday': '1/1/1975',
+              'origination_id': '456700',
               'bank_account_source': 1,
               'state_of_incorporation': 'DE',
-              'mobile_phone': '2014565678'
+              'mobile_phone': '2014565678',
+              'owners': [
+                {
+                  'email': u'petersmith@gmail.com', 
+                  'first_name': 'Peter',               
+                  'last_name': 'Smith',
+                  'title': 'Dr',
+                  'ownership': '90', 
+                  'ssn': '123256789',               
+                  'phone': u'3475608900',               
+                  'address': '450 E 45th Street',               
+                  'city': 'New York',               
+                  'state': 'NJ', 
+                  'zipcode': '07047',               
+                  'birthday': '1/1/1975'
+                }
+              ]
             }
             
 
@@ -143,22 +151,26 @@ ownership | Owner's percentage of ownership in the business
 
         + Success  
     
-            { 'status': 'OK',
-              'application_number': '1234567890'
+            {
+                'status': 'OK',
+                'display_status': 'APPLICATION RECEIVED',
+                'application': [application id],
+                'application_number': [application number],
+                'business': [business id]
             }
 
         + Error  
     
             {
-              'status': 'ERROR',
-              'message': [error message]
+                'status': 'ERROR',
+                'message': [error message]
             }
 
         + Duplicate  
     
             {
               'status': 'WARN',
-              'message': 'A duplicate application was found. Your application was not created'
+              'message': 'A duplicate application was found. Your application has not been created'
             }
 
 + Attributes (ApplicationData)
