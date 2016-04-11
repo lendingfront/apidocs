@@ -7,188 +7,231 @@ LendingFront will provide you with the key which needs be included in all reques
 API calls must be sent via https (SSL)</code></pre>
 <h3 id="header-testing-host">Testing Host <a class="permalink" href="#header-testing-host" aria-hidden="true">¶</a></h3>
 <p>During the implementation phase, LendingFront will provide you with the test and production URLs.</p>
-<section id="resources" class="resource-group"><h2 class="group-heading">Resources <a href="#resources" class="permalink">&para;</a></h2><div id="resources-application" class="resource"><h3 class="resource-heading">Application <a href="#resources-application" class="permalink">&nbsp;&para;</a></h3><div id="resources-application-post" class="action post"><h4 class="action-heading"><div class="name">Create New Application</div><a href="#resources-application-post" class="method post">POST</a><code class="uri">/application</code></h4><h4 id="header-attributes">Attributes <a class="permalink" href="#header-attributes" aria-hidden="true">¶</a></h4>
-<p>Fields marked with * are required.</p>
+<section id="resources" class="resource-group"><h2 class="group-heading">Resources <a href="#resources" class="permalink">&para;</a></h2><div id="resources-application" class="resource"><h3 class="resource-heading">Application <a href="#resources-application" class="permalink">&nbsp;&para;</a></h3><div id="resources-application-post" class="action post"><h4 class="action-heading"><div class="name">Create New Application</div><a href="#resources-application-post" class="method post">POST</a><code class="uri">/application</code></h4><p>Fields marked with * are required.</p>
+<h4 id="header-attributes">Attributes <a class="permalink" href="#header-attributes" aria-hidden="true">¶</a></h4>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Restrictions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>key*</td>
 <td>API Key assigned by LendingFront (send in header - see Request below)</td>
+<td></td>
 </tr>
 <tr>
 <td>business_name*</td>
 <td>Business name</td>
+<td></td>
 </tr>
 <tr>
 <td>tax_id*</td>
-<td>The 9 digit Tax ID or EIN</td>
+<td>Tax ID or EIN</td>
+<td>9 digits, without dashes, spaces or parenthesis</td>
 </tr>
 <tr>
 <td>business_phone*</td>
-<td>Main business phone (without dashes, spaces or parenthesis)</td>
+<td>Main business phone</td>
+<td>Without dashes, spaces or parenthesis</td>
 </tr>
 <tr>
 <td>business_address*</td>
 <td>Business Address line</td>
+<td></td>
 </tr>
 <tr>
 <td>business_city*</td>
 <td>City</td>
+<td></td>
 </tr>
 <tr>
 <td>business_state*</td>
-<td>State (NY, NJ, etc)</td>
+<td>State</td>
+<td>Two letters: NY, NJ, etc</td>
 </tr>
 <tr>
 <td>business_zipcode*</td>
 <td>Postal code</td>
+<td></td>
 </tr>
 <tr>
 <td>bank_account_source*</td>
-<td>1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required</td>
+<td>1 = Send Bank Enrollment Link<br>2 = Manual Bank Statements<br>3 = Not Required</td>
+<td></td>
 </tr>
 <tr>
 <td>owners*</td>
-<td>See the ‘Owners information’ section</td>
+<td>See the ‘Owners information’ section below</td>
+<td></td>
 </tr>
 <tr>
 <td>industry_type</td>
 <td>Business industry type</td>
+<td></td>
 </tr>
 <tr>
 <td>mailing_address</td>
 <td>Business mailing address</td>
+<td></td>
 </tr>
 <tr>
 <td>mailing_city</td>
 <td>Business mailing city</td>
+<td></td>
 </tr>
 <tr>
 <td>mailing_state</td>
 <td>Business mailing state</td>
+<td>Two letters: NY, NJ, etc</td>
 </tr>
 <tr>
 <td>mailing_postal_code</td>
 <td>Business mailing postal code</td>
+<td></td>
 </tr>
 <tr>
 <td>average_monthly_sales</td>
 <td>Average monthly sales amount</td>
+<td></td>
 </tr>
 <tr>
 <td>bank_account_number</td>
 <td>Business operating bank account number</td>
+<td></td>
 </tr>
 <tr>
 <td>bank_routing_number</td>
 <td>Business operating bank account routing number</td>
+<td></td>
 </tr>
 <tr>
 <td>legal_entity_type</td>
 <td>Corporation, Sole Propriertorship, LLC, Limited Partnership, Partnership, LLC, Other</td>
+<td></td>
 </tr>
 <tr>
 <td>requested_amount</td>
 <td>Request Loan/Advance amount</td>
+<td></td>
 </tr>
 <tr>
 <td>years_business</td>
-<td>Number of years in business (e.g 2, 3)</td>
+<td>Number of years in business</td>
+<td>Number of years (e.g 2, 3)</td>
 </tr>
 <tr>
 <td>origination_id</td>
 <td>The application number of the application in your (CRM) system.</td>
+<td></td>
 </tr>
 <tr>
 <td>channel</td>
 <td>ISO or Direct</td>
+<td></td>
 </tr>
 <tr>
 <td>channel_email</td>
-<td>ISO email address (required if channel = ISO)</td>
+<td>ISO email address</td>
+<td>(required if channel = ISO)</td>
 </tr>
 <tr>
 <td>contact_name</td>
-<td>ISO contact name (required if channel = ISO)</td>
+<td>ISO contact name</td>
+<td>(required if channel = ISO)</td>
 </tr>
 <tr>
 <td>secondary_iso_name</td>
 <td>Name of referring ISO</td>
+<td></td>
 </tr>
 <tr>
 <td>mobile_phone</td>
 <td>Business mobile phone</td>
+<td>Without dashes, spaces or parenthesis</td>
 </tr>
 <tr>
 <td>state_of_incorporation</td>
 <td>The 2 letter state abbreviation where the business was incorporated</td>
+<td>Two letters: NY, NJ, etc</td>
 </tr>
 </tbody>
 </table>
 <h4 id="header-owners-information">Owners information <a class="permalink" href="#header-owners-information" aria-hidden="true">¶</a></h4>
 <p>An array named ‘owners’ must be sent. Every item on the array represents an owner and must containt the following params.
-However, the previous API that supported only one owner is still working. Fields marked with * are required.</p>
+However, the previous API that supported only one owner is still supported.
+rec</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Restrictions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>first_name*</td>
 <td>First Name of the owner</td>
+<td></td>
 </tr>
 <tr>
 <td>last_name*</td>
 <td>Last Name of the owner</td>
+<td></td>
 </tr>
 <tr>
 <td>birthday*</td>
 <td>Birthday of the owner</td>
+<td>In format mm/dd/yyyy</td>
 </tr>
 <tr>
 <td>phone*</td>
 <td>Primary phone number of the owner</td>
+<td>Without dashes, spaces or parenthesis</td>
 </tr>
 <tr>
 <td>ssn*</td>
-<td>Social security number (9 digits)</td>
+<td>Social security number</td>
+<td>9 digits, without dashes, spaces or parenthesis</td>
 </tr>
 <tr>
 <td>email*</td>
 <td>E-mail address used for loan related communications including sending and signing loan docs</td>
+<td></td>
 </tr>
 <tr>
 <td>city*</td>
 <td>City where the owner’s home is located</td>
+<td></td>
 </tr>
 <tr>
 <td>state*</td>
 <td>State where the owner’s home is located</td>
+<td>The 2 letter state abbreviation where the business was incorporated</td>
 </tr>
 <tr>
 <td>address*</td>
 <td>Owner’s home Address</td>
+<td></td>
 </tr>
 <tr>
 <td>zipcode*</td>
 <td>Owner’s home Postal Code</td>
+<td></td>
 </tr>
 <tr>
 <td>title</td>
-<td>The owner’s title</td>
+<td>Owner’s title</td>
+<td></td>
 </tr>
 <tr>
 <td>ownership</td>
 <td>Owner’s percentage of ownership in the business</td>
+<td>Only numbers (e.g ‘90’, ‘85’)</td>
 </tr>
 </tbody>
 </table>
@@ -279,39 +322,63 @@ However, the previous API that supported only one owner is still working. Fields
 }</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>+  success
 
         {
-            'status': 'OK',
-            'application' : {
-                                'application_number':'196415838638',
-                                'requested_amount':Decimal('54000'),
-                                'loan_amount': Decimal('45000'),
-                                'origination_id': '345433',
-                                'term': 6,
-                                'origination_fee': Decimal('350'),
-                                'cents_on_the_dollar': Decimal('0.15'),
-                                'product_type: 'Advance', 
-                                'decision': 'APPROVED',
-                                'status': 'FUNDED',
-                                'daily_payment': Decimal('89.45'),
-                                'purchased_amount': Decimal('24,650'),
-                                'create_date': '07/13/2015',
-                                'decision_date': '07/13/2015',
-                                'underwriting_date': '07/13/2015'
-                            }
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'OK'</span>,
+            <span class="hljs-string">'application'</span>: {
+                <span class="hljs-string">'id'</span>: [application id],
+                <span class="hljs-string">'application_number'</span>: [application number],
+                <span class="hljs-string">'business_id'</span>: [business id],
+                <span class="hljs-string">'cents_on_the_dollar'</span>: [cents on the dollar],
+                <span class="hljs-string">'channel'</span>: [ISO or Direct],
+                <span class="hljs-string">'city'</span>: [city],
+                <span class="hljs-string">'client_id'</span>: [client id],
+                <span class="hljs-string">'create_date'</span>: [date],
+                <span class="hljs-string">'daily_payment'</span>: [daily payment],
+                <span class="hljs-string">'decision'</span>: [decision],
+                <span class="hljs-string">'decision_date'</span>: [date],
+                <span class="hljs-string">'display_status'</span>: [status],
+                <span class="hljs-string">'docs_received_date'</span>: [date],
+                <span class="hljs-string">'docs_sent_date'</span>: [date],
+                <span class="hljs-string">'frequency_name'</span>: [frequency name],
+                <span class="hljs-string">'iso_contact_email'</span>: [email],
+                <span class="hljs-string">'iso_contact_name'</span>: [name],
+                <span class="hljs-string">'iso_name'</span>: [name],
+                <span class="hljs-string">'iso_secondary_name'</span>: [name],
+                <span class="hljs-string">'loan_amount'</span>: [loan amount],
+                <span class="hljs-string">'name'</span>: [name],
+                <span class="hljs-string">'origination_fee'</span>: [fee],
+                <span class="hljs-string">'origination_id'</span>: [origination id],
+                <span class="hljs-string">'owner_id'</span>: [owner id],
+                <span class="hljs-string">'payment_day'</span>: [payment day],
+                <span class="hljs-string">'payment_day_number'</span>: [payment day number],
+                <span class="hljs-string">'payment_frequency'</span>: [payment frequency],
+                <span class="hljs-string">'payment_frequency_id'</span>: [payment frequency_id],
+                <span class="hljs-string">'phone'</span>: [phone],
+                <span class="hljs-string">'product_type'</span>: [product type],
+                <span class="hljs-string">'purchased_amount'</span>: [purchased amount],
+                <span class="hljs-string">'requested_amount'</span>: [requested amount],
+                <span class="hljs-string">'specified_percentage'</span>: [specified percentage],
+                <span class="hljs-string">'state'</span>: [state],
+                <span class="hljs-string">'status'</span>: [status],
+                <span class="hljs-string">'term'</span>: [term],
+                <span class="hljs-string">'total_number_payments'</span>: [total number payments],
+                <span class="hljs-string">'underwriting_date'</span>: [date],
+                <span class="hljs-string">'waiting_for_bank_verification_date'</span>: [date]
+            }
         }
 
 +  Not Found 
 
         {
-            'status': 'OK',
-            'message': 'Application not found'
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'OK'</span>,
+            <span class="hljs-string">'message'</span>: <span class="hljs-string">'Application not found'</span>
         }
 
-+  Error 
++  <span class="hljs-built_in">Error</span> 
 
         {
-            'status': 'ERROR',
-            'message': 'An error ocurred while processing the request'
-        }</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="resources-application-status-change-notification" class="resource"><h3 class="resource-heading">Application Status Change Notification <a href="#resources-application-status-change-notification" class="permalink">&nbsp;&para;</a></h3><div id="resources-application-status-change-notification-post" class="action post"><h4 class="action-heading"><div class="name">Application status change - Callback</div><a href="#resources-application-status-change-notification-post" class="method post">POST</a><code class="uri">/providedbylender</code></h4><p>Applications status change notifications will be POSTed to the callback URL you provide to LendingFront during the implementation process.</p>
+            <span class="hljs-string">'status'</span>: <span class="hljs-string">'ERROR'</span>,
+            <span class="hljs-string">'message'</span>: <span class="hljs-string">'An error ocurred while processing the request'</span>
+        }</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="resources-application-status-change-notification" class="resource"><h3 class="resource-heading">Application Status Change Notification <a href="#resources-application-status-change-notification" class="permalink">&nbsp;&para;</a></h3><div id="resources-application-status-change-notification-post" class="action post"><h4 class="action-heading"><div class="name">Application status change - Callback</div><a href="#resources-application-status-change-notification-post" class="method post">POST</a><code class="uri">/providedbylender</code></h4><p>Applications status change notifications will be POST to the callback URL you provide to LendingFront during the implementation process.</p>
 <p>A separate response is returned when the application is initially created which includes the LendingFront application number (see application/create api above).</p>
 <p>The notification call can send a security token or user credentials depending on the security mechanism implemented by your API.</p>
 <h4 id="header-attributes-2">Attributes <a class="permalink" href="#header-attributes-2" aria-hidden="true">¶</a></h4>
