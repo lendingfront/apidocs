@@ -40,60 +40,60 @@ During the implementation phase, LendingFront will provide you with the test and
 
 ### Create New Application [POST]
 
-#### Attributes
-
 Fields marked with * are required.
 
-Name | Description
----- | -----------
+#### Attributes
+
+Name | Description | Restrictions 
+---- | ----------- | ------------
 key* | API Key assigned by LendingFront (send in header - see Request below)
 business_name* | Business name
-tax_id* | The 9 digit Tax ID or EIN
-business_phone* | Main business phone (without dashes, spaces or parenthesis)
+tax_id* | Tax ID or EIN | 9 digits, without dashes, spaces or parenthesis
+business_phone* | Main business phone | Without dashes, spaces or parenthesis
 business_address* | Business Address line
 business_city* | City 
-business_state* | State (NY, NJ, etc)
+business_state* | State | Two letters: NY, NJ, etc
 business_zipcode* | Postal code
-bank_account_source* | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
-owners* | See the 'Owners information' section
+bank_account_source* | 1 = Send Bank Enrollment Link<br>2 = Manual Bank Statements<br>3 = Not Required
+owners* | See the 'Owners information' section below
 industry_type | Business industry type
 mailing_address | Business mailing address 
 mailing_city | Business mailing city
-mailing_state | Business mailing state
+mailing_state | Business mailing state | Two letters: NY, NJ, etc
 mailing_postal_code | Business mailing postal code
 average_monthly_sales | Average monthly sales amount
 bank_account_number | Business operating bank account number
 bank_routing_number | Business operating bank account routing number
 legal_entity_type | Corporation, Sole Propriertorship, LLC, Limited Partnership, Partnership, LLC, Other
 requested_amount | Request Loan/Advance amount
-years_business | Number of years in business (e.g 2, 3)
+years_business | Number of years in business | Number of years (e.g 2, 3)
 origination_id | The application number of the application in your (CRM) system. 
 channel | ISO or Direct
-channel_email | ISO email address (required if channel = ISO)
-contact_name | ISO contact name (required if channel = ISO)
+channel_email | ISO email address | (required if channel = ISO)
+contact_name | ISO contact name | (required if channel = ISO)
 secondary_iso_name | Name of referring ISO
-mobile_phone | Business mobile phone
-state_of_incorporation | The 2 letter state abbreviation where the business was incorporated
+mobile_phone | Business mobile phone | Without dashes, spaces or parenthesis
+state_of_incorporation | The 2 letter state abbreviation where the business was incorporated | Two letters: NY, NJ, etc
  
 #### Owners information
 
 An array named 'owners' must be sent. Every item on the array represents an owner and must containt the following params.
-However, the previous API that supported only one owner is still working. Fields marked with * are required.
-
-Name | Description
----- | -----------
+However, the previous API that supported only one owner is still supported.
+ rec
+Name | Description | Restrictions 
+---- | ----------- | ------------
 first_name* | First Name of the owner
 last_name* | Last Name of the owner
-birthday* | Birthday of the owner
-phone* | Primary phone number of the owner
-ssn* | Social security number (9 digits)
+birthday* | Birthday of the owner | In format mm/dd/yyyy
+phone* | Primary phone number of the owner| Without dashes, spaces or parenthesis
+ssn* | Social security number | 9 digits, without dashes, spaces or parenthesis
 email* | E-mail address used for loan related communications including sending and signing loan docs
 city* | City where the owner's home is located
-state* | State where the owner's home is located
+state* | State where the owner's home is located | The 2 letter state abbreviation where the business was incorporated | Two letters: NY, NJ, etc
 address* | Owner's home Address
 zipcode* | Owner's home Postal Code
-title | The owner's title
-ownership | Owner's percentage of ownership in the business
+title | Owner's title
+ownership | Owner's percentage of ownership in the business | Only numbers (e.g '90', '85')
 
 
 + Request (application/json)
@@ -205,23 +205,47 @@ application_number | Unique number that identifies a submitted application. This
         
                 {
                     'status': 'OK',
-                    'application' : {
-                                        'application_number':'196415838638',
-                                        'requested_amount':Decimal('54000'),
-                                        'loan_amount': Decimal('45000'),
-                                        'origination_id': '345433',
-                                        'term': 6,
-                                        'origination_fee': Decimal('350'),
-                                        'cents_on_the_dollar': Decimal('0.15'),
-                                        'product_type: 'Advance', 
-                                        'decision': 'APPROVED',
-                                        'status': 'FUNDED',
-                                        'daily_payment': Decimal('89.45'),
-                                        'purchased_amount': Decimal('24,650'),
-                                        'create_date': '07/13/2015',
-                                        'decision_date': '07/13/2015',
-                                        'underwriting_date': '07/13/2015'
-                                    }
+                    'application': {
+                        'id': [application id],
+                        'application_number': [application number],
+                        'business_id': [business id],
+                        'cents_on_the_dollar': [cents on the dollar],
+                        'channel': [ISO or Direct],
+                        'city': [city],
+                        'client_id': [client id],
+                        'create_date': [date],
+                        'daily_payment': [daily payment],
+                        'decision': [decision],
+                        'decision_date': [date],
+                        'display_status': [status],
+                        'docs_received_date': [date],
+                        'docs_sent_date': [date],
+                        'frequency_name': [frequency name],
+                        'iso_contact_email': [email],
+                        'iso_contact_name': [name],
+                        'iso_name': [name],
+                        'iso_secondary_name': [name],
+                        'loan_amount': [loan amount],
+                        'name': [name],
+                        'origination_fee': [fee],
+                        'origination_id': [origination id],
+                        'owner_id': [owner id],
+                        'payment_day': [payment day],
+                        'payment_day_number': [payment day number],
+                        'payment_frequency': [payment frequency],
+                        'payment_frequency_id': [payment frequency_id],
+                        'phone': [phone],
+                        'product_type': [product type],
+                        'purchased_amount': [purchased amount],
+                        'requested_amount': [requested amount],
+                        'specified_percentage': [specified percentage],
+                        'state': [state],
+                        'status': [status],
+                        'term': [term],
+                        'total_number_payments': [total number payments],
+                        'underwriting_date': [date],
+                        'waiting_for_bank_verification_date': [date]
+                    }
                 }
                 
         +  Not Found 
@@ -245,7 +269,7 @@ application_number | Unique number that identifies a submitted application. This
 ## Application Status Change Notification [/providedbylender]
 
 ### Application status change - Callback [POST]
-Applications status change notifications will be POSTed to the callback URL you provide to LendingFront during the implementation process.
+Applications status change notifications will be POST to the callback URL you provide to LendingFront during the implementation process.
 
 A separate response is returned when the application is initially created which includes the LendingFront application number (see application/create api above).
 
