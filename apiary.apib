@@ -39,42 +39,23 @@ During the implementation phase, LendingFront will provide you with the test and
 
 
 ### Create New Application [POST]
-Create New Application
 
-Attributes:
+#### Attributes
 
-Name | Description
----- | -----------
-key | API Key assigned by LendingFront (send in header - see Request below)
-business_name | Business name
-tax_id | The 9 digit Tax ID or EIN
-business_phone | Main business phone (without dashes, spaces or parenthesis)
-business_address | Business Address line
-business_city | City 
-business_state | State (NY, NJ, etc)
-business_zipcode | Postal code
- 
-Owner information:
+Fields marked with * are required.
 
 Name | Description
 ---- | -----------
-first_name | First Name of the primary owner
-last_name | Last Name of the primary owner
-birthday | Birthday of the primary owner
-owner_phone | Primary phone number of owner
-ssn | Social security number (9 digits)
-owner_email | E-mail address used for loan related communications including sending and signing loan docs
-owner_city | City where the owner's home is located
-owner_state | State where the owner's home is located
-owner_address | Owner's home Address 
-owner_zipcode | Owner's home Postal Code
-bank_account_source | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
-channel | ISO or Direct
-
-Optional Fields:
-
-Name | Description
----- | -----------
+key* | API Key assigned by LendingFront (send in header - see Request below)
+business_name* | Business name
+tax_id* | The 9 digit Tax ID or EIN
+business_phone* | Main business phone (without dashes, spaces or parenthesis)
+business_address* | Business Address line
+business_city* | City 
+business_state* | State (NY, NJ, etc)
+business_zipcode* | Postal code
+bank_account_source* | 1 = Send Bank Enrollment Link, 2 = Manual Bank Statements, 3 = Not Required
+owners* | See the 'Owners information' section
 mailing_address | Business mailing address 
 mailing_city | Business mailing city
 mailing_state | Business mailing state
@@ -86,12 +67,33 @@ legal_entity_type | Corporation, Sole Propriertorship, LLC, Limited Partnership,
 requested_amount | Request Loan/Advance amount
 years_business | Number of years in business (e.g 2, 3)
 origination_id | The application number of the application in your (CRM) system. 
-title | The owner's title
+channel | ISO or Direct
 channel_email | ISO email address (required if channel = ISO)
 contact_name | ISO contact name (required if channel = ISO)
 secondary_iso_name | Name of referring ISO
 mobile_phone | Business mobile phone
 state_of_incorporation | The 2 letter state abbreviation where the business was incorporated
+ 
+#### Owners information
+
+An array named 'owners' must be sent. Every item on the array represents an owner and must containt the following params.
+However, the previous API that supported only one owner is still working. Fields marked with * are required.
+
+Name | Description
+---- | -----------
+first_name* | First Name of the owner
+last_name* | Last Name of the owner
+birthday* | Birthday of the owner
+phone* | Primary phone number of the owner
+ssn* | Social security number (9 digits)
+email* | E-mail address used for loan related communications including sending and signing loan docs
+city* | City where the owner's home is located
+state* | State where the owner's home is located
+address* | Owner's home Address
+zipcode* | Owner's home Postal Code
+title | The owner's title
+ownership | Owner's percentage of ownership in the business
+
 
 + Request (application/json)
 
@@ -165,7 +167,7 @@ state_of_incorporation | The 2 letter state abbreviation where the business was 
 ### Get Application [GET]
 Retrieves an application by application_number.
 
-Attributes:
+#### Attributes
 
 Name | Description
 ---- | -----------
@@ -238,7 +240,7 @@ A separate response is returned when the application is initially created which 
 The notification call can send a security token or user credentials depending on the security mechanism implemented by your API.
 
 
-Attributes:
+#### Attributes
 
 Name | Description
 ---- | -----------
@@ -247,7 +249,7 @@ origination_id|Application ID in your CRM software (optional)
 old_status|Previous application status
 new_status|New application status
 
-Optional attributes (key or username/password):
+#### Optional attributes (key or username/password)
 
 Name | Description
 ---- | -----------
